@@ -220,11 +220,50 @@ h1{
   align-items: center;
 }
 
-.heroShots {
-  position: relative;
-  max-width: 520px;
-  width: 100%;
-  height: auto;
+.heroShots{
+  position:relative;
+  width:640px;
+  height:460px;
+}
+
+.shot{
+  position:absolute;
+  width:560px;
+  border-radius:16px;
+  box-shadow:
+    0 30px 80px rgba(0,0,0,0.65),
+    0 10px 30px rgba(0,0,0,0.35);
+}
+
+/* back image */
+
+.shotBack{
+  transform:
+    rotate(-7deg)
+    translateX(-100px)
+    translateY(60px)
+    scale(.88);
+  opacity:.45;
+}
+
+/* middle */
+
+.shotMid{
+  transform:
+    rotate(-2deg)
+    translateX(-20px)
+    translateY(25px)
+    scale(.95);
+  opacity:.75;
+}
+
+/* front */
+
+.shotFront{
+  transform:
+    rotate(4deg)
+    translateX(60px)
+    translateY(-10px);
 }
 
 .heroShots img {
