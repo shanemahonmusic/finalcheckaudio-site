@@ -194,7 +194,7 @@ h1{
 ========================= */
 .report-preview{
   margin-top:54px;
-  padding:26px 0 40px; /* real space so PDFs can’t overlap next section */
+  padding:26px 10px; /* real space so PDFs can’t overlap next section */
   display:grid;
   grid-template-columns: 1.05fr 0.95fr;
   gap:56px;
