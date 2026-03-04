@@ -369,3 +369,103 @@ h1{
   .report-shots{justify-self:center;height:440px}
   .pdfFront{left:40px}
 }
+/* =========================
+   LAYOUT WIDENING + BREATHING ROOM (OVERRIDES)
+   Paste at END of styles.css
+========================= */
+
+/* 1) Make the whole site feel less "stuck in the middle" on desktop */
+.container{
+  width: min(1380px, 94vw);
+}
+
+/* 2) Let the hero use that space properly */
+.hero{
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 64px;
+  align-items: start;
+  padding: 70px 0 40px;
+}
+
+/* 3) Make the hero artwork bigger AND shift it right slightly */
+.hero-right{
+  display:flex;
+  justify-content:flex-end;
+  align-items:flex-start;
+}
+
+.heroShots{
+  position:relative;
+  width: min(860px, 54vw);
+  height: 600px;
+  transform: translateX(40px);
+}
+
+.shot{
+  position:absolute;
+  width: min(800px, 50vw);
+  border-radius: 16px;
+}
+
+/* 4) Remove the "1100px lock" that makes sections feel narrow */
+.screenshots,
+.report-preview{
+  max-width: none;
+  width: min(1380px, 94vw);
+  margin: 0 auto;
+}
+
+/* Keep report section as a grid (your file has both flex + grid versions) */
+.report-preview{
+  display:grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 64px;
+  align-items: center;
+  margin-top: 120px;
+}
+
+/* Make the PDFs fill the right side more confidently */
+.report-shots{
+  justify-self: end;
+  width: min(620px, 44vw);
+  height: 560px;
+}
+
+.pdfShot{
+  width: min(520px, 38vw);
+}
+
+/* 5) Mobile stays clean */
+@media (max-width: 920px){
+  .hero{
+    grid-template-columns: 1fr;
+    gap: 22px;
+    padding: 48px 0 20px;
+  }
+
+  .heroShots{
+    width: min(720px, 92vw);
+    height: 520px;
+    transform: none;
+  }
+
+  .shot{
+    width: 100%;
+  }
+
+  .report-preview{
+    grid-template-columns: 1fr;
+    gap: 28px;
+    margin-top: 70px;
+  }
+
+  .report-shots{
+    width: min(720px, 92vw);
+    height: 520px;
+    justify-self: start;
+  }
+
+  .pdfShot{
+    width: 100%;
+  }
+}
