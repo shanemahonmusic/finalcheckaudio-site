@@ -29,6 +29,7 @@ body{
     radial-gradient(1200px 800px at 20% 20%, #121a33 0%, var(--bg-0) 55%),
     radial-gradient(900px 700px at 85% 25%, rgba(138,43,226,0.20) 0%, transparent 60%),
     linear-gradient(180deg, var(--bg-1), var(--bg-0));
+  background-attachment: fixed, fixed, fixed; /* stops the “gradient band” */
   overflow-x:hidden;
 }
 
@@ -153,7 +154,7 @@ h1{
   border-radius:999px;background:rgba(0,0,0,0.15)
 }
 
-/* HERO SHOTS (single definition) */
+/* HERO SHOTS */
 .hero-right{display:flex;justify-content:center;align-items:center}
 .heroShots{
   position:relative;
@@ -189,21 +190,20 @@ h1{
 }
 
 /* =========================
-   PDF REPORT (ALIGNED TO TOP)
+   PDF REPORT (TRUE LEVEL ALIGN)
 ========================= */
 .report-preview{
   margin-top:54px;
-  padding:26px 0 10px;
-
+  padding:26px 0 140px; /* real space so PDFs can’t overlap next section */
   display:grid;
   grid-template-columns: 1.05fr 0.95fr;
   gap:56px;
-
-  /* key: align top like hero */
-  align-items:start;
+  align-items:start; /* top-align columns */
 }
 
-.report-copy{max-width:560px}
+.report-copy{
+  max-width:520px; /* stops left text from forcing weird balance */
+}
 
 .section-sub{
   opacity:0.7;
@@ -224,39 +224,49 @@ h1{
   opacity:0.95;
 }
 
+/* Right column: lift the stack so it starts level with the heading */
 .report-shots{
   position:relative;
   width:100%;
   max-width:560px;
-  min-height:520px;
+  min-height:640px;     /* contains absolute/rotated PDFs */
   justify-self:end;
-
-  /* bring stack up slightly to match heading baseline */
-  margin-top:-8px;
+  align-self:start;
+  transform: translateY(-130px); /* <-- MAIN “level it” control */
 }
 
+/* PDFs: consistent centering so it behaves on different widths */
 .pdfShot{
   position:absolute;
+  top:0;
+  left:50%;
   width:440px;
   max-width:100%;
   height:auto;
-
   border-radius:18px;
   border:1px solid rgba(255,255,255,0.10);
   box-shadow:
     0 30px 80px rgba(0,0,0,0.65),
     0 10px 30px rgba(0,0,0,0.35);
+  transform-origin:center;
 }
 
 .pdfBack{
-  transform: rotate(-6deg) translateX(-70px) translateY(46px) scale(.92);
-  opacity:.55;
   z-index:1;
+  opacity:.55;
+  transform:
+    translateX(-50%)
+    rotate(-6deg)
+    translate(-70px, 95px)
+    scale(.92);
 }
 
 .pdfFront{
-  transform: rotate(3deg) translateX(18px) translateY(0px);
   z-index:2;
+  transform:
+    translateX(-50%)
+    rotate(3deg)
+    translate(20px, 10px);
 }
 
 /* =========================
@@ -363,7 +373,6 @@ h1{
     width:min(760px, 92vw);
     height:440px;
   }
-
   .shot{
     width:min(720px, 92vw);
   }
@@ -372,14 +381,14 @@ h1{
     grid-template-columns:1fr;
     gap:28px;
     margin-top:34px;
-    padding:20px 0 10px;
+    padding:20px 0 110px;
   }
 
   .report-shots{
     justify-self:start;
     max-width:520px;
-    min-height:520px;
-    margin-top:0;
+    min-height:560px;
+    transform: none; /* don’t lift on mobile; keep natural flow */
   }
 
   .pdfShot{width:420px}
@@ -387,105 +396,4 @@ h1{
   .cards{grid-template-columns:1fr}
   .shot-grid{grid-template-columns:1fr}
   .split{grid-template-columns:1fr}
-}
-/* =========================
-   HOTFIX: Gradient band + PDF section sizing/alignment
-   Paste at very bottom of styles.css
-========================= */
-
-/* 1) Stop “gradient line” banding by fixing the background to the viewport */
-body{
-  background-attachment: fixed, fixed, fixed; /* matches your 3 background layers */
-}
-
-/* 2) PDF section: contain the stacked PDFs + lift them up + prevent overlap into next section */
-.report-preview{
-  margin-top: 44px;        /* keeps it close to hero */
-  padding-top: 18px;
-  padding-bottom: 140px;   /* IMPORTANT: creates real space so the PDF can't bleed into next section */
-  align-items: start;      /* align text + image to the top of the grid */
-}
-
-.report-copy{
-  max-width: 520px;        /* stops the left text from feeling like it spans too wide */
-}
-
-/* Make the right column “taller” so the rotated stack always stays inside this section */
-.report-shots{
-  min-height: 640px;       /* IMPORTANT: contains transformed absolute images */
-  margin-top: -46px;       /* lifts the PDF stack up to sit level with the heading */
-}
-
-/* Slightly retune the transforms so the stack sits higher and cleaner */
-.pdfBack{
-  transform: rotate(-6deg) translateX(-60px) translateY(24px) scale(.92);
-}
-
-.pdfFront{
-  transform: rotate(3deg) translateX(20px) translateY(-34px);
-}
-
-/* Optional: ensure the next section never “slides under” the report visually */
-#features.section{
-  position: relative;
-  z-index: 1;
-  margin-top: 0;           /* keep default */
-}
-/* =========================
-   PDF LEVEL ALIGNMENT FIX
-   Paste at very bottom of styles.css
-========================= */
-
-.report-preview{
-  align-items: start;        /* top-align both columns */
-}
-
-.report-copy{
-  align-self: start;
-}
-
-.report-shots{
-  align-self: start;         /* make the right column start at the same top */
-  margin-top: -90px;         /* <-- pulls the PDFs UP to match the heading */
-  min-height: 640px;         /* ensures the stack still stays contained */
-}
-
-/* keep the PDFs positioned cleanly within the stack */
-.pdfBack{ top: 60px; }
-.pdfFront{ top: 0; }
-
-/* =========================
-   PDF REPORT — TRUE LEVEL ALIGN (OVERRIDE)
-   Paste at VERY BOTTOM of styles.css
-========================= */
-
-.report-preview{
-  align-items: start;
-}
-
-.report-copy{
-  align-self: start;
-}
-
-.report-shots{
-  align-self: start;
-  position: relative;
-  margin-top: 0 !important;            /* kill earlier margin hacks */
-  transform: translateY(-280px);       /* <-- raise the whole PDF stack */
-  min-height: 640px;
-}
-
-/* IMPORTANT: remove the internal offsets that keep pushing the PDFs down */
-.pdfShot{ position: absolute; top: 0; left: 0; }
-
-.pdfBack{
-  top: 0 !important;
-  transform: rotate(-6deg) translateX(-60px) translateY(60px) scale(.92);
-  opacity: .55;
-}
-
-.pdfFront{
-  top: 0 !important;
-  transform: rotate(3deg) translateX(20px) translateY(0px);
-  z-index: 2;
 }
