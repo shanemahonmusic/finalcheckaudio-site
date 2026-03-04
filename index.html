@@ -3,10 +3,11 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>MVP Final Check — Know when your track is ready</title>
+  <title>Final Check Audio — Know when your track is ready</title>
   <meta name="description" content="Standalone desktop app that checks LUFS, LRA, and True Peak and returns a clear PASS / CAUTION / FAIL verdict." />
   <link rel="stylesheet" href="./styles.css" />
 </head>
+
 <body>
   <div class="bg">
     <div class="bg-grid"></div>
@@ -31,6 +32,7 @@
     </div>
   </header>
 
+  <!-- HERO -->
   <main class="container hero">
     <section class="hero-left">
       <p class="pill">Standalone desktop app • Mac + Windows</p>
@@ -42,10 +44,7 @@
       </p>
 
       <div class="cta-row">
-        <!-- Replace with your Stripe Checkout/Payment Link -->
         <a class="btn primary" href="REPLACE_WITH_STRIPE_LINK">Buy now — £49</a>
-
-        <!-- Optional: mailto or a contact form later -->
         <a class="btn ghost" href="mailto:support@finalcheckaudio.com">Get in touch</a>
       </div>
 
@@ -56,50 +55,55 @@
       </div>
     </section>
 
-   <section class="hero-right" aria-hidden="true">
+    <section class="hero-right" aria-hidden="true">
+      <div class="heroShots">
+        <img class="shot shotBack"
+             src="assets/PREMASTER%20FAIL.png"
+             alt="Premaster FAIL verdict screen"
+             loading="lazy" />
 
-  <div class="heroShots">
-    <img class="shot shotBack"
-         src="assets/PREMASTER%20FAIL.png"
-         alt="Premaster FAIL verdict screen"
-         loading="lazy" />
+        <img class="shot shotMid"
+             src="assets/PREMASTER%20CAUTION.png"
+             alt="Premaster CAUTION verdict screen"
+             loading="lazy" />
 
-    <img class="shot shotMid"
-         src="assets/PREMASTER%20CAUTION.png"
-         alt="Premaster CAUTION verdict screen"
-         loading="lazy" />
-
-    <img class="shot shotFront"
-         src="assets/PREMASTER%20PASS.png"
-         alt="Premaster PASS verdict screen"
-         loading="eager" />
-  </div>
-
-</section>
-    <section class="report-preview" id="report">
-
-  <div class="report-copy">
-    <h2>PDF report (optional export)</h2>
-    <p class="section-sub">
-      Generate a clean sign-off style PDF to share with clients, labels, or collaborators.
-      Keeps the verdict, key metrics, and fix-first actions in one place.
-    </p>
-
-    <div class="report-points">
-      <div class="point">Verdict summary (PASS / CAUTION / FAIL)</div>
-      <div class="point">Integrated LUFS, LRA, True Peak</div>
-      <div class="point">3 reasons + 3 fix-first actions</div>
-    </div>
-  </div>
-
-  <div class="report-shots">
-    <img class="pdfShot pdfBack" src="assets/CAUTION%20PDF.png" alt="PDF report preview - CAUTION">
-    <img class="pdfShot pdfFront" src="assets/PASS%20PDF.png" alt="PDF report preview - PASS">
-  </div>
-
-</section>
+        <img class="shot shotFront"
+             src="assets/PREMASTER%20PASS.png"
+             alt="Premaster PASS verdict screen"
+             loading="eager" />
+      </div>
+    </section>
   </main>
 
+  <!-- PDF REPORT PREVIEW (keep OUTSIDE the hero flex layout) -->
+  <section class="container report-preview" id="report">
+    <div class="report-copy">
+      <h2>PDF report (optional export)</h2>
+      <p class="section-sub">
+        Generate a clean sign-off style PDF to share with clients, labels, or collaborators.
+        Keeps the verdict, key metrics, and fix-first actions in one place.
+      </p>
+
+      <div class="report-points">
+        <div class="point">Verdict summary (PASS / CAUTION / FAIL)</div>
+        <div class="point">Integrated LUFS, LRA, True Peak</div>
+        <div class="point">3 reasons + 3 fix-first actions</div>
+      </div>
+    </div>
+
+    <div class="report-shots">
+      <img class="pdfShot pdfBack"
+           src="assets/CAUTION%20PDF.png"
+           alt="PDF report preview - CAUTION"
+           loading="lazy" />
+      <img class="pdfShot pdfFront"
+           src="assets/PASS%20PDF.png"
+           alt="PDF report preview - PASS"
+           loading="lazy" />
+    </div>
+  </section>
+
+  <!-- FEATURES -->
   <section id="features" class="container section">
     <h2>What it does</h2>
     <div class="cards">
@@ -122,55 +126,51 @@
       </article>
     </div>
   </section>
-  <section class="screenshots">
 
-  <h2>Mix Check verdicts</h2>
-  <p class="section-sub">Premaster analysis showing PASS / CAUTION / FAIL results.</p>
+  <!-- SCREENSHOTS -->
+  <section class="container section screenshots">
+    <h2>Mix Check verdicts</h2>
+    <p class="section-sub">Premaster analysis showing PASS / CAUTION / FAIL results.</p>
 
-  <div class="shot-grid">
+    <div class="shot-grid">
+      <div class="shot-card">
+        <img src="assets/PREMASTER%20PASS.png" alt="Premaster PASS verdict" loading="lazy">
+        <span>PASS</span>
+      </div>
 
-    <div class="shot-card">
-      <img src="assets/PREMASTER%20PASS.png" alt="Premaster PASS verdict">
-      <span>PASS</span>
+      <div class="shot-card">
+        <img src="assets/PREMASTER%20CAUTION.png" alt="Premaster CAUTION verdict" loading="lazy">
+        <span>CAUTION</span>
+      </div>
+
+      <div class="shot-card">
+        <img src="assets/PREMASTER%20FAIL.png" alt="Premaster FAIL verdict" loading="lazy">
+        <span>FAIL</span>
+      </div>
     </div>
 
-    <div class="shot-card">
-      <img src="assets/PREMASTER%20CAUTION.png" alt="Premaster CAUTION verdict">
-      <span>CAUTION</span>
+    <h2 style="margin-top:60px;">Master Check verdicts</h2>
+    <p class="section-sub">Release-level checks before distribution.</p>
+
+    <div class="shot-grid">
+      <div class="shot-card">
+        <img src="assets/MASTER%20PASS.png" alt="Master PASS verdict" loading="lazy">
+        <span>PASS</span>
+      </div>
+
+      <div class="shot-card">
+        <img src="assets/MASTER%20CAUTION.png" alt="Master CAUTION verdict" loading="lazy">
+        <span>CAUTION</span>
+      </div>
+
+      <div class="shot-card">
+        <img src="assets/MASTER%20FAIL.png" alt="Master FAIL verdict" loading="lazy">
+        <span>FAIL</span>
+      </div>
     </div>
+  </section>
 
-    <div class="shot-card">
-      <img src="assets/PREMASTER%20FAIL.png" alt="Premaster FAIL verdict">
-      <span>FAIL</span>
-    </div>
-
-  </div>
-
-
-  <h2 style="margin-top:60px;">Master Check verdicts</h2>
-  <p class="section-sub">Release-level checks before distribution.</p>
-
-  <div class="shot-grid">
-
-    <div class="shot-card">
-      <img src="assets/MASTER%20PASS.png" alt="Master PASS verdict">
-      <span>PASS</span>
-    </div>
-
-    <div class="shot-card">
-      <img src="assets/MASTER%20CAUTION.png" alt="Master CAUTION verdict">
-      <span>CAUTION</span>
-    </div>
-
-    <div class="shot-card">
-      <img src="assets/MASTER%20FAIL.png" alt="Master FAIL verdict">
-      <span>FAIL</span>
-    </div>
-
-  </div>
-
-</section>
-
+  <!-- EDUCATION -->
   <section id="edu" class="container section split">
     <div>
       <h2>Education & student pricing</h2>
@@ -190,6 +190,7 @@
     </div>
   </section>
 
+  <!-- FAQ -->
   <section id="faq" class="container section">
     <h2>FAQ</h2>
     <div class="faq">
