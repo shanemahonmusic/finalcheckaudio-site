@@ -311,7 +311,7 @@
  <div id="lightbox" class="lightbox" aria-hidden="true">
   <button class="lightbox__close" id="lightboxClose" aria-label="Close" type="button">×</button>
 
-  <button class="lightbox__zoom" id="lightboxZoom" aria-label="Zoom">
+<button class="lightbox__zoom" id="lightboxZoom" aria-label="Zoom" type="button">
     🔍
   </button>
 
@@ -330,67 +330,106 @@
     </div>
   </footer>
 
-  <script>
-    document.getElementById("y").textContent = new Date().getFullYear();
+<script>
+  document.getElementById("y").textContent = new Date().getFullYear();
 
-    /* LIGHTBOX */
-    (function(){
-      const lightbox = document.getElementById('lightbox');
-      const lightboxImg = document.getElementById('lightboxImg');
-      const lightboxClose = document.getElementById('lightboxClose');
-      const images = Array.from(document.querySelectorAll('[data-lightbox]'));
-      let currentIndex = 0;
+  /* LIGHTBOX */
+  (function () {
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightboxImg');
+    const lightboxClose = document.getElementById('lightboxClose');
+    const zoomBtn = document.getElementById('lightboxZoom');
+    const images = Array.from(document.querySelectorAll('[data-lightbox]'));
 
-      if (!lightbox || !lightboxImg || !lightboxClose || images.length === 0) return;
+    let currentIndex = 0;
+    let zoomed = false;
 
-      function openLightbox(index){
-        currentIndex = index;
-        lightboxImg.src = images[index].currentSrc || images[index].src;
-        lightboxImg.alt = images[index].alt || '';
-        lightbox.classList.add('is-open');
-        lightbox.setAttribute('aria-hidden', 'false');
-        document.body.style.overflow = 'hidden';
+    if (!lightbox || !lightboxImg || !lightboxClose || images.length === 0) return;
+
+    function applyZoom() {
+      if (zoomed) {
+        lightboxImg.style.transform = "scale(2)";
+        lightboxImg.style.cursor = "zoom-out";
+      } else {
+        lightboxImg.style.transform = "scale(1)";
+        lightboxImg.style.cursor = "zoom-in";
       }
+    }
 
-      function closeLightbox(){
-        lightbox.classList.remove('is-open');
-        lightbox.setAttribute('aria-hidden', 'true');
-        document.body.style.overflow = '';
-        lightboxImg.removeAttribute('src');
-      }
+    function openLightbox(index) {
+      currentIndex = index;
 
-      function showNext(){
-        currentIndex = (currentIndex + 1) % images.length;
-        lightboxImg.src = images[currentIndex].currentSrc || images[currentIndex].src;
-        lightboxImg.alt = images[currentIndex].alt || '';
-      }
+      // reset zoom every time a new image opens
+      zoomed = false;
+      applyZoom();
 
-      function showPrev(){
-        currentIndex = (currentIndex - 1 + images.length) % images.length;
-        lightboxImg.src = images[currentIndex].currentSrc || images[currentIndex].src;
-        lightboxImg.alt = images[currentIndex].alt || '';
-      }
+      lightboxImg.src = images[index].currentSrc || images[index].src;
+      lightboxImg.alt = images[index].alt || '';
+      lightbox.classList.add('is-open');
+      lightbox.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    }
 
-      images.forEach((img, index) => {
-        img.style.cursor = 'zoom-in';
-        img.addEventListener('click', () => openLightbox(index));
+    function closeLightbox() {
+      lightbox.classList.remove('is-open');
+      lightbox.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+      lightboxImg.removeAttribute('src');
+
+      // reset zoom when closing
+      zoomed = false;
+      applyZoom();
+    }
+
+    function showNext() {
+      currentIndex = (currentIndex + 1) % images.length;
+
+      zoomed = false;
+      applyZoom();
+
+      lightboxImg.src = images[currentIndex].currentSrc || images[currentIndex].src;
+      lightboxImg.alt = images[currentIndex].alt || '';
+    }
+
+    function showPrev() {
+      currentIndex = (currentIndex - 1 + images.length) % images.length;
+
+      zoomed = false;
+      applyZoom();
+
+      lightboxImg.src = images[currentIndex].currentSrc || images[currentIndex].src;
+      lightboxImg.alt = images[currentIndex].alt || '';
+    }
+
+    images.forEach((img, index) => {
+      img.style.cursor = 'zoom-in';
+      img.addEventListener('click', () => openLightbox(index));
+    });
+
+    lightboxClose.addEventListener('click', closeLightbox);
+
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox) closeLightbox();
+    });
+
+    window.addEventListener('keydown', (e) => {
+      if (!lightbox.classList.contains('is-open')) return;
+
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowRight') showNext();
+      if (e.key === 'ArrowLeft') showPrev();
+    });
+
+    // Zoom button: add listener ONCE (not inside openLightbox)
+    if (zoomBtn) {
+      zoomBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        zoomed = !zoomed;
+        applyZoom();
       });
-
-      lightboxClose.addEventListener('click', closeLightbox);
-
-      lightbox.addEventListener('click', (e) => {
-        if (e.target === lightbox) closeLightbox();
-      });
-
-      window.addEventListener('keydown', (e) => {
-        if (!lightbox.classList.contains('is-open')) return;
-
-        if (e.key === 'Escape') closeLightbox();
-        if (e.key === 'ArrowRight') showNext();
-        if (e.key === 'ArrowLeft') showPrev();
-      });
-    })();
-  </script>
+    }
+  })();
+</script>
 
 </body>
 </html>
