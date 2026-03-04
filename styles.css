@@ -230,10 +230,10 @@ h1{
   position:relative;
   width:100%;
   max-width:560px;
-  min-height:640px;     /* contains absolute/rotated PDFs */
+  min-height:420px;
   justify-self:end;
   align-self:start;
-  transform: translateY(-500px); /* <-- MAIN “level it” control */
+  transform: translateY(-200px);
 }
 
 /* PDFs: consistent centering so it behaves on different widths */
