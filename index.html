@@ -333,43 +333,60 @@ Send us a quick message and we'll help you get set up.
 </footer>
 
 <script>
+
 document.getElementById("y").textContent = new Date().getFullYear();
 
 /* LIGHTBOX */
+
 const lightbox = document.getElementById('lightbox');
 const lightboxImg = document.getElementById('lightboxImg');
 const lightboxClose = document.getElementById('lightboxClose');
 
-function openLightbox(src, alt){
+const images = [...document.querySelectorAll('[data-lightbox]')];
+let currentIndex = 0;
+
+function openLightbox(index){
+  currentIndex = index;
+  lightboxImg.src = images[index].src;
+  lightboxImg.alt = images[index].alt || '';
   lightbox.classList.add('is-open');
-  lightbox.setAttribute('aria-hidden','false');
-  lightboxImg.src = src;
-  lightboxImg.alt = alt || '';
   document.body.style.overflow = 'hidden';
 }
 
 function closeLightbox(){
   lightbox.classList.remove('is-open');
-  lightbox.setAttribute('aria-hidden','true');
-  lightboxImg.src = '';
-  lightboxImg.alt = '';
   document.body.style.overflow = '';
 }
 
-document.querySelectorAll('[data-lightbox]').forEach(img => {
+function showNext(){
+  currentIndex = (currentIndex + 1) % images.length;
+  lightboxImg.src = images[currentIndex].src;
+}
+
+function showPrev(){
+  currentIndex = (currentIndex - 1 + images.length) % images.length;
+  lightboxImg.src = images[currentIndex].src;
+}
+
+images.forEach((img,index)=>{
   img.style.cursor = 'zoom-in';
-  img.addEventListener('click', () => openLightbox(img.src, img.alt));
+  img.addEventListener('click',()=>openLightbox(index));
 });
 
-lightboxClose.addEventListener('click', closeLightbox);
+lightboxClose.addEventListener('click',closeLightbox);
 
-lightbox.addEventListener('click', (e) => {
+lightbox.addEventListener('click',(e)=>{
   if(e.target === lightbox) closeLightbox();
 });
 
-window.addEventListener('keydown', (e) => {
-  if(e.key === 'Escape') closeLightbox();
+window.addEventListener('keydown',(e)=>{
+  if(!lightbox.classList.contains('is-open')) return;
+
+  if(e.key === "Escape") closeLightbox();
+  if(e.key === "ArrowRight") showNext();
+  if(e.key === "ArrowLeft") showPrev();
 });
+
 </script>
 
 </body>
