@@ -183,17 +183,17 @@
 
     <div class="shot-grid">
       <div class="shot-card">
-        <img src="assets/PREMASTER%20PASS.png" alt="Premaster PASS verdict" loading="lazy">
+        <img src="assets/PREMASTER%20PASS.png" alt="Premaster PASS verdict" loading="lazy" data-lightbox>
         <span>PASS</span>
       </div>
 
       <div class="shot-card">
-        <img src="assets/PREMASTER%20CAUTION.png" alt="Premaster CAUTION verdict" loading="lazy">
+        <img src="assets/PREMASTER%20CAUTION.png" alt="Premaster CAUTION verdict" loading="lazy" data-lightbox>
         <span>CAUTION</span>
       </div>
 
       <div class="shot-card">
-        <img src="assets/PREMASTER%20FAIL.png" alt="Premaster FAIL verdict" loading="lazy">
+        <img src="assets/PREMASTER%20FAIL.png" alt="Premaster FAIL verdict" loading="lazy" data-lightbox>
         <span>FAIL</span>
       </div>
     </div>
@@ -203,17 +203,17 @@
 
     <div class="shot-grid">
       <div class="shot-card">
-        <img src="assets/MASTER%20PASS.png" alt="Master PASS verdict" loading="lazy">
+        <img src="assets/MASTER%20PASS.png" alt="Master PASS verdict" loading="lazy" data-lightbox>
         <span>PASS</span>
       </div>
 
       <div class="shot-card">
-        <img src="assets/MASTER%20CAUTION.png" alt="Master CAUTION verdict" loading="lazy">
+        <img src="assets/MASTER%20CAUTION.png" alt="Master CAUTION verdict" loading="lazy" data-lightbox>
         <span>CAUTION</span>
       </div>
 
       <div class="shot-card">
-        <img src="assets/MASTER%20FAIL.png" alt="Master FAIL verdict" loading="lazy">
+        <img src="assets/MASTER%20FAIL.png" alt="Master FAIL verdict" loading="lazy" data-lightbox>
         <span>FAIL</span>
       </div>
     </div>
@@ -314,6 +314,12 @@ Send us a quick message and we'll help you get set up.
 
 </section>
 
+<!-- LIGHTBOX -->
+<div id="lightbox" class="lightbox" aria-hidden="true">
+  <button class="lightbox__close" id="lightboxClose" aria-label="Close">×</button>
+  <img id="lightboxImg" class="lightbox__img" alt="">
+</div>
+
 <footer class="footer">
   <div class="container footer-inner">
     <div>© <span id="y"></span> Final Check Audio Ltd</div>
@@ -328,6 +334,42 @@ Send us a quick message and we'll help you get set up.
 
 <script>
 document.getElementById("y").textContent = new Date().getFullYear();
+
+/* LIGHTBOX */
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = document.getElementById('lightboxImg');
+const lightboxClose = document.getElementById('lightboxClose');
+
+function openLightbox(src, alt){
+  lightbox.classList.add('is-open');
+  lightbox.setAttribute('aria-hidden','false');
+  lightboxImg.src = src;
+  lightboxImg.alt = alt || '';
+  document.body.style.overflow = 'hidden';
+}
+
+function closeLightbox(){
+  lightbox.classList.remove('is-open');
+  lightbox.setAttribute('aria-hidden','true');
+  lightboxImg.src = '';
+  lightboxImg.alt = '';
+  document.body.style.overflow = '';
+}
+
+document.querySelectorAll('[data-lightbox]').forEach(img => {
+  img.style.cursor = 'zoom-in';
+  img.addEventListener('click', () => openLightbox(img.src, img.alt));
+});
+
+lightboxClose.addEventListener('click', closeLightbox);
+
+lightbox.addEventListener('click', (e) => {
+  if(e.target === lightbox) closeLightbox();
+});
+
+window.addEventListener('keydown', (e) => {
+  if(e.key === 'Escape') closeLightbox();
+});
 </script>
 
 </body>
