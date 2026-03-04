@@ -346,22 +346,42 @@
 
     if (!lightbox || !lightboxImg || !lightboxClose || images.length === 0) return;
 
- function applyZoom() {
+function applyZoom(){
 
-  if (zoomed) {
+  if(zoomed){
     lightboxImg.style.transform = "scale(2)";
     lightboxImg.style.cursor = "zoom-out";
-    lightboxImg.style.transformOrigin = "center center";
+
+    if(zoomBtn) zoomBtn.textContent = "−";
 
   } else {
     lightboxImg.style.transform = "scale(1)";
     lightboxImg.style.cursor = "zoom-in";
-    lightboxImg.style.transformOrigin = "center center";
+
+    if(zoomBtn) zoomBtn.textContent = "+";
   }
 
 }
-    lightboxImg.addEventListener('mousemove', (e) => {
+ lightboxImg.addEventListener('mousemove', (e) => {
 
+  if(!zoomed) return;
+
+  const rect = lightboxImg.getBoundingClientRect();
+
+  const x = (e.clientX - rect.left) / rect.width * 100;
+  const y = (e.clientY - rect.top) / rect.height * 100;
+
+  lightboxImg.style.transformOrigin = `${x}% ${y}%`;
+
+});
+
+
+lightboxImg.addEventListener('click', () => {
+
+  zoomed = !zoomed;
+  applyZoom();
+
+});
   if(!zoomed) return;
 
   const rect = lightboxImg.getBoundingClientRect();
