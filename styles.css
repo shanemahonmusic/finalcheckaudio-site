@@ -16,6 +16,10 @@
 
   --shadow: 0 20px 80px rgba(0,0,0,0.55);
   --radius: 18px;
+
+  /* Safe tweak knobs (change these numbers only) */
+  --report-left-offset: 30px;   /* + down, - up */
+  --report-right-offset: -80px; /* + down, - up */
 }
 
 *{box-sizing:border-box}
@@ -35,7 +39,6 @@ body{
 
 a{color:inherit;text-decoration:none}
 
-/* Wider container so it doesn’t feel “packed in the middle” */
 .container{
   width:min(1240px, 92vw);
   margin:0 auto;
@@ -200,17 +203,11 @@ a{color:inherit;text-decoration:none}
 }
 
 /* =========================
-   PDF REPORT PREVIEW (FIXED)
-   - no translateY hacks
-   - no overlap
+   PDF REPORT PREVIEW (STABLE)
 ========================= */
 .report-preview{
   margin-top:54px;
   padding:54px 0;
-}
-
-.report-wrap{
-  background: transparent;
 }
 
 .report-grid{
@@ -222,7 +219,7 @@ a{color:inherit;text-decoration:none}
 
 .report-copy{
   max-width:520px;
-  transform: translateY(30px); /* negative = up, positive = down */
+  margin-top: var(--report-left-offset); /* stable movement */
 }
 
 .section-sub{
@@ -244,15 +241,14 @@ a{color:inherit;text-decoration:none}
   opacity:0.95;
 }
 
-/* Right column PDF stack */
 .report-shots{
   position:relative;
   width:100%;
   max-width:560px;
-  min-height:560px;     /* reserves space so it can't collide */
+  min-height:560px;         /* reserves space so it can't collide */
   justify-self:end;
   align-self:start;
-  transform: translateY(-80px);
+  margin-top: var(--report-right-offset); /* stable movement */
 }
 
 /* PDFs */
@@ -398,7 +394,7 @@ a{color:inherit;text-decoration:none}
 .footer-links a:hover{color:var(--text)}
 
 /* =========================
-   LEGAL PAGES (privacy / terms)
+   LEGAL PAGES
 ========================= */
 .legal{
   max-width: 760px;
@@ -454,10 +450,15 @@ a{color:inherit;text-decoration:none}
     gap:28px;
   }
 
+  .report-copy{
+    margin-top: 0;          /* keep natural flow on mobile */
+  }
+
   .report-shots{
     justify-self:start;
     max-width:520px;
     min-height:560px;
+    margin-top: 0;          /* keep natural flow on mobile */
   }
 
   .pdfShot{width:420px}
