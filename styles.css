@@ -80,7 +80,7 @@ a{color:inherit;text-decoration:none}
   height:34px;
   display:block;
   flex:0 0 34px;      /* IMPORTANT: stops flex stretching/weirdness */
-  object-fit:contain;
+  object-fit:cover;
   background:none;
   box-shadow:none;
 }
