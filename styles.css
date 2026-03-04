@@ -512,3 +512,22 @@ a{color:inherit;text-decoration:none}
 .lightbox__close:hover{
   background: rgba(20,20,20,0.85);
 }
+/* Lightbox animation */
+
+.lightbox{
+  opacity:0;
+  transition:opacity .25s ease;
+}
+
+.lightbox.is-open{
+  opacity:1;
+}
+
+.lightbox__img{
+  transform:scale(.96);
+  transition:transform .25s ease;
+}
+
+.lightbox.is-open .lightbox__img{
+  transform:scale(1);
+}
