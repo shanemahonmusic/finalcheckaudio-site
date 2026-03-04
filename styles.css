@@ -453,3 +453,39 @@ body{
 /* keep the PDFs positioned cleanly within the stack */
 .pdfBack{ top: 60px; }
 .pdfFront{ top: 0; }
+
+/* =========================
+   PDF REPORT — TRUE LEVEL ALIGN (OVERRIDE)
+   Paste at VERY BOTTOM of styles.css
+========================= */
+
+.report-preview{
+  align-items: start;
+}
+
+.report-copy{
+  align-self: start;
+}
+
+.report-shots{
+  align-self: start;
+  position: relative;
+  margin-top: 0 !important;            /* kill earlier margin hacks */
+  transform: translateY(-120px);       /* <-- raise the whole PDF stack */
+  min-height: 640px;
+}
+
+/* IMPORTANT: remove the internal offsets that keep pushing the PDFs down */
+.pdfShot{ position: absolute; top: 0; left: 0; }
+
+.pdfBack{
+  top: 0 !important;
+  transform: rotate(-6deg) translateX(-60px) translateY(60px) scale(.92);
+  opacity: .55;
+}
+
+.pdfFront{
+  top: 0 !important;
+  transform: rotate(3deg) translateX(20px) translateY(0px);
+  z-index: 2;
+}
