@@ -233,7 +233,7 @@ h1{
   min-height:420px;
   justify-self:end;
   align-self:start;
-  transform: translateY(-200px);
+  transform: translateY(-500px);
 }
 
 /* PDFs: consistent centering so it behaves on different widths */
