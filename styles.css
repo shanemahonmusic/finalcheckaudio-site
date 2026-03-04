@@ -120,7 +120,6 @@ a{color:inherit;text-decoration:none}
   line-height:1.02;
   letter-spacing:-0.8px;
   max-width:14ch;
-  text-transform:capitalize;
 }
 .lead{
   color:var(--muted);
