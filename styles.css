@@ -314,3 +314,40 @@ h1{
   .shot-grid{grid-template-columns:1fr}
   .split{grid-template-columns:1fr}
 }
+/* ================================
+   FIX 1: Stop PDF section bleeding
+   ================================ */
+
+/* Give the PDF section enough bottom room for the tilted card + shadow */
+.report-preview{
+  padding-bottom: 140px !important;
+}
+
+/* Make the PDF stack a touch shorter so it sits inside its section */
+.report-shots{
+  height: 480px !important;
+}
+
+/* Re-position the PDFs to stay inside that 480px stack */
+.pdfBack{
+  top: 60px !important;
+}
+
+.pdfFront{
+  top: 10px !important;
+}
+
+/* Optional: slightly smaller PDFs if you still see overlap on your screen */
+.pdfShot{
+  width: 400px !important;
+}
+
+
+/* =========================================
+   FIX 2: Remove the “horizontal gradient seam”
+   ========================================= */
+
+/* Force the background gradients to stick to the viewport (prevents banding on scroll) */
+body{
+  background-attachment: fixed, fixed, fixed !important;
+}
