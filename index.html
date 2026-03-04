@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>MVP Final Check — Know when your track is ready</title>
+  <meta name="description" content="Standalone desktop app that checks LUFS, LRA, and True Peak and returns a clear PASS / CAUTION / FAIL verdict." />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <div class="bg">
+    <div class="bg-grid"></div>
+    <div class="bg-glow"></div>
+  </div>
+
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <div class="brand">
+        <div class="brand-mark" aria-hidden="true"></div>
+        <div class="brand-text">
+          <div class="brand-name">Final Check Audio</div>
+          <div class="brand-sub">MVP Final Check</div>
+        </div>
+      </div>
+
+      <nav class="nav">
+        <a href="#features">Features</a>
+        <a href="#edu">Education</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container hero">
+    <section class="hero-left">
+      <p class="pill">Standalone desktop app • Mac + Windows</p>
+
+      <h1>Know when your track is ready.</h1>
+      <p class="lead">
+        Upload a premaster and get an instant <strong>PASS / CAUTION / FAIL</strong> verdict based on
+        Integrated LUFS, LRA, and True Peak — with clear “fix-first” actions.
+      </p>
+
+      <div class="cta-row">
+        <!-- Replace with your Stripe Checkout/Payment Link -->
+        <a class="btn primary" href="REPLACE_WITH_STRIPE_LINK">Buy now — £49</a>
+
+        <!-- Optional: mailto or a contact form later -->
+        <a class="btn ghost" href="mailto:support@finalcheckaudio.com">Get in touch</a>
+      </div>
+
+      <div class="fineprint">
+        <span>Not a DAW plugin.</span>
+        <span>Offline-first.</span>
+        <span>License key activation.</span>
+      </div>
+    </section>
+
+    <section class="hero-right" aria-hidden="true">
+      <div class="art">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="tile tile-1"></div>
+        <div class="tile tile-2"></div>
+        <div class="tile tile-3"></div>
+        <div class="ring"></div>
+        <div class="spark spark-1"></div>
+        <div class="spark spark-2"></div>
+        <div class="spark spark-3"></div>
+      </div>
+    </section>
+  </main>
+
+  <section id="features" class="container section">
+    <h2>What it does</h2>
+    <div class="cards">
+      <article class="card">
+        <div class="card-icon"></div>
+        <h3>Instant verdict</h3>
+        <p>Clear PASS / CAUTION / FAIL so you stop guessing and stop over-tweaking.</p>
+      </article>
+
+      <article class="card">
+        <div class="card-icon"></div>
+        <h3>Fix-first actions</h3>
+        <p>3 reasons + 3 fix-first moves so you know exactly what to adjust next.</p>
+      </article>
+
+      <article class="card">
+        <div class="card-icon"></div>
+        <h3>Built for real delivery</h3>
+        <p>Checks the metrics that actually trip releases: loudness, dynamics, true peak.</p>
+      </article>
+    </div>
+  </section>
+
+  <section id="edu" class="container section split">
+    <div>
+      <h2>Education & student pricing</h2>
+      <p class="lead">
+        If you’re a student or educator, use an education discount code at checkout.
+        Codes can be time-limited and rotated whenever you want.
+      </p>
+      <p class="muted">
+        (Discount is applied inside Stripe Checkout — no special website logic required.)
+      </p>
+    </div>
+
+    <div class="edu-box">
+      <div class="edu-title">Have a code?</div>
+      <div class="edu-text">Click “Buy now” and enter it at checkout.</div>
+      <a class="btn small ghost" href="#faq">See FAQ</a>
+    </div>
+  </section>
+
+  <section id="faq" class="container section">
+    <h2>FAQ</h2>
+    <div class="faq">
+      <details>
+        <summary>Is this a plugin?</summary>
+        <p>No — it’s a standalone desktop app (not VST/AU/AAX). You export audio and run the check.</p>
+      </details>
+      <details>
+        <summary>How do I receive access?</summary>
+        <p>After purchase, you’ll receive your license key and download link (Stripe receipt + your delivery email flow).</p>
+      </details>
+      <details>
+        <summary>Can I use discount / education codes?</summary>
+        <p>Yes. Stripe supports promo codes directly inside Checkout.</p>
+      </details>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div>© <span id="y"></span> Final Check Audio Ltd</div>
+      <div class="footer-links">
+        <a href="mailto:support@finalcheckaudio.com">Support</a>
+        <a href="#">Privacy</a>
+        <a href="#">Terms</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("y").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
