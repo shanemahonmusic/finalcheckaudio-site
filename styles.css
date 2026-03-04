@@ -251,7 +251,7 @@ a{color:inherit;text-decoration:none}
   min-height:560px;     /* reserves space so it can't collide */
   justify-self:end;
   align-self:start;
-  transform: translateY(-500px);
+  transform: translateY(-200px);
 }
 
 /* PDFs */
