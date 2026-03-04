@@ -431,3 +431,25 @@ body{
   z-index: 1;
   margin-top: 0;           /* keep default */
 }
+/* =========================
+   PDF LEVEL ALIGNMENT FIX
+   Paste at very bottom of styles.css
+========================= */
+
+.report-preview{
+  align-items: start;        /* top-align both columns */
+}
+
+.report-copy{
+  align-self: start;
+}
+
+.report-shots{
+  align-self: start;         /* make the right column start at the same top */
+  margin-top: -90px;         /* <-- pulls the PDFs UP to match the heading */
+  min-height: 640px;         /* ensures the stack still stays contained */
+}
+
+/* keep the PDFs positioned cleanly within the stack */
+.pdfBack{ top: 60px; }
+.pdfFront{ top: 0; }
