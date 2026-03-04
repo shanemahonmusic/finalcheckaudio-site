@@ -233,7 +233,7 @@ h1{
   min-height:640px;     /* contains absolute/rotated PDFs */
   justify-self:end;
   align-self:start;
-  transform: translateY(-550px); /* <-- MAIN “level it” control */
+  transform: translateY(-500px); /* <-- MAIN “level it” control */
 }
 
 /* PDFs: consistent centering so it behaves on different widths */
