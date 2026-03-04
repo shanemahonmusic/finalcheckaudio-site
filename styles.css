@@ -202,7 +202,8 @@ h1{
 }
 
 .report-copy{
-  max-width:520px; /* stops left text from forcing weird balance */
+  max-width:520px;
+  margin-top:40px;
 }
 
 .section-sub{
