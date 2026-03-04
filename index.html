@@ -415,19 +415,40 @@ document.getElementById("y").textContent = new Date().getFullYear();
     applyZoom();
   });
 
-  // Mouse follow zoom (only when zoomed)
-  lightboxImg.addEventListener('mousemove', (e) => {
-    if (!zoomed) return;
+// Mouse follow zoom (only when zoomed)
+lightboxImg.addEventListener('mousemove', (e) => {
+  if (!zoomed) return;
 
-    const rect = lightboxImg.getBoundingClientRect();
-    const x = ((e.clientX - rect.left) / rect.width) * 100;
-    const y = ((e.clientY - rect.top) / rect.height) * 100;
+  const rect = lightboxImg.getBoundingClientRect();
+  const x = ((e.clientX - rect.left) / rect.width) * 100;
+  const y = ((e.clientY - rect.top) / rect.height) * 100;
 
-    lightboxImg.style.transformOrigin = `${x}% ${y}%`;
-  });
+  lightboxImg.style.transformOrigin = `${x}% ${y}%`;
+});
 
-  // Close button
-  lightboxClose.addEventListener('click', closeLightbox);
+// Touch follow zoom (mobile) — only when zoomed
+function setOriginFromPoint(clientX, clientY){
+  const rect = lightboxImg.getBoundingClientRect();
+  const x = ((clientX - rect.left) / rect.width) * 100;
+  const y = ((clientY - rect.top) / rect.height) * 100;
+
+  lightboxImg.style.transformOrigin = `${x}% ${y}%`;
+}
+
+lightboxImg.addEventListener('touchstart', (e) => {
+  if (!zoomed) return;
+  const t = e.touches[0];
+  setOriginFromPoint(t.clientX, t.clientY);
+}, { passive: true });
+
+lightboxImg.addEventListener('touchmove', (e) => {
+  if (!zoomed) return;
+  const t = e.touches[0];
+  setOriginFromPoint(t.clientX, t.clientY);
+}, { passive: true });
+
+// Close button
+lightboxClose.addEventListener('click', closeLightbox);
 
   // Click backdrop closes
   lightbox.addEventListener('click', (e) => {
