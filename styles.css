@@ -2,34 +2,40 @@
   --accent-1: #8a2be2;
   --accent-2: #ff4ecd;
   --accent-3: #4d7cff;
+
   --bg-0: #07090f;
   --bg-1: #0b1020;
+
   --text: #e9ecf4;
   --muted: #a9b0c3;
+
   --card: rgba(255,255,255,0.06);
   --stroke: rgba(255,255,255,0.12);
+
   --shadow: 0 20px 80px rgba(0,0,0,0.55);
   --radius: 18px;
 }
 
 *{box-sizing:border-box}
 html,body{height:100%}
+
 body{
   margin:0;
   font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
   color:var(--text);
-  background:
-    radial-gradient(1200px 800px at 20% 20%, #121a33 0%, var(--bg-0) 55%),
-    radial-gradient(900px 700px at 85% 25%, rgba(138,43,226,0.20) 0%, transparent 60%),
-    linear-gradient(180deg, var(--bg-1), var(--bg-0));
+  background: var(--bg-0);   /* ✅ solid bg: stops “gradient band” slicing through sections */
   overflow-x:hidden;
 }
 
 a{color:inherit;text-decoration:none}
 
-/* Make the page feel less “tight in the middle” */
-.container{width:min(1240px,92vw);margin:0 auto}
+/* ✅ wider overall layout so it doesn’t feel “too centred” on large screens */
+.container{
+  width:min(1280px, 94vw);
+  margin:0 auto;
+}
 
+/* ===== Fixed background layer (all gradients live here) ===== */
 .bg{position:fixed;inset:0;pointer-events:none;z-index:-1}
 .bg-grid{
   position:absolute;inset:-2px;
@@ -40,14 +46,20 @@ a{color:inherit;text-decoration:none}
   opacity:0.06;
   transform:translateZ(0);
 }
+
+/* ✅ glow is on a fixed layer + extra bottom glow so no hard “line” appears */
 .bg-glow{
-  position:absolute;inset:-40vh -20vw;
+  position:absolute; inset:-25vh -18vw;
   background:
-    radial-gradient(closest-side at 60% 40%, rgba(255,78,205,0.12), transparent 60%),
-    radial-gradient(closest-side at 30% 70%, rgba(138,43,226,0.14), transparent 55%);
-  filter: blur(10px);
+    radial-gradient(1200px 900px at 18% 18%, rgba(77,124,255,0.22), transparent 70%),
+    radial-gradient(1200px 900px at 80% 25%, rgba(138,43,226,0.28), transparent 72%),
+    radial-gradient(1200px 900px at 55% 75%, rgba(255,78,205,0.14), transparent 75%),
+    radial-gradient(1200px 900px at 35% 110%, rgba(138,43,226,0.14), transparent 75%);
+  filter: blur(18px);
+  opacity:1;
 }
 
+/* ===== Topbar ===== */
 .topbar{
   position:sticky;top:0;
   backdrop-filter: blur(10px);
@@ -68,15 +80,12 @@ a{color:inherit;text-decoration:none}
 .nav a{color:var(--muted);font-size:14px}
 .nav a:hover{color:var(--text)}
 
-/* =========================
-   HERO
-========================= */
-
+/* ===== Hero ===== */
 .hero{
   display:grid;
   grid-template-columns: 1.05fr 0.95fr;
-  gap:54px;
-  padding:72px 0 54px;  /* tighter to report section */
+  gap:44px;
+  padding:62px 0 36px;
   align-items:center;
 }
 
@@ -90,20 +99,12 @@ a{color:inherit;text-decoration:none}
   border:1px solid var(--stroke);
   color: var(--muted);
   font-size:13px;
+  flex-wrap:wrap;
 }
+.pill-sep{opacity:.5}
 
-.pill-sep{opacity:.55}
-
-.os{
-  display:inline-flex;
-  align-items:center;
-  gap:8px;
-  color:rgba(233,236,244,0.85);
-}
-.os-ico{
-  width:16px;height:16px;
-  opacity:.9;
-}
+.os{display:inline-flex;align-items:center;gap:8px}
+.os-ico{width:16px;height:16px;opacity:.9}
 
 h1{
   margin:18px 0 12px;
@@ -111,7 +112,7 @@ h1{
   line-height:1.02;
   letter-spacing:-0.8px;
 }
-.lead{color:var(--muted);font-size:18px;line-height:1.5;max-width:52ch}
+.lead{color:var(--muted);font-size:18px;line-height:1.5;max-width:54ch}
 
 .cta-row{display:flex;gap:14px;align-items:center;margin-top:20px;flex-wrap:wrap}
 .btn{
@@ -120,9 +121,9 @@ h1{
   background: rgba(255,255,255,0.05);
   color:var(--text);
   font-weight:600;
-  transition: transform .15s ease, filter .15s ease;
+  transition: transform .15s ease;
 }
-.btn:hover{transform: translateY(-1px); filter: brightness(1.02)}
+.btn:hover{transform: translateY(-1px)}
 .btn.primary{
   border:none;
   background: linear-gradient(135deg, var(--accent-1), var(--accent-2));
@@ -131,20 +132,10 @@ h1{
 .btn.ghost{background: rgba(255,255,255,0.04)}
 .btn.small{padding:10px 14px;border-radius:12px;font-size:14px}
 
-.fineprint{
-  display:flex;gap:14px;margin-top:14px;
-  color:rgba(233,236,244,0.65);
-  font-size:13px;
-  flex-wrap:wrap
-}
-.fineprint span{
-  padding:6px 10px;
-  border:1px solid rgba(255,255,255,0.10);
-  border-radius:999px;
-  background: rgba(0,0,0,0.15)
-}
+.fineprint{display:flex;gap:14px;margin-top:14px;color:rgba(233,236,244,0.65);font-size:13px;flex-wrap:wrap}
+.fineprint span{padding:6px 10px;border:1px solid rgba(255,255,255,0.10);border-radius:999px;background: rgba(0,0,0,0.15)}
 
-/* Hero screenshot stack — bigger + clearer */
+/* ===== Hero screenshot stack (bigger + clearer) ===== */
 .hero-right{
   display:flex;
   justify-content:center;
@@ -153,127 +144,36 @@ h1{
 
 .heroShots{
   position:relative;
-  width:720px;
-  height:520px;
+  width:720px;     /* ✅ bigger */
+  height:500px;    /* ✅ bigger */
 }
 
 .shot{
   position:absolute;
-  width:660px;
-  max-width:100%;
-  border-radius:18px;
+  width:640px;     /* ✅ bigger */
+  border-radius:16px;
   box-shadow:
-    0 30px 90px rgba(0,0,0,0.68),
-    0 10px 32px rgba(0,0,0,0.35);
-  border:1px solid rgba(255,255,255,0.10);
+    0 30px 80px rgba(0,0,0,0.65),
+    0 10px 30px rgba(0,0,0,0.35);
 }
 
 .shotBack{
-  top:38px; left:-56px;
-  transform: rotate(-8deg) scale(.88);
-  opacity:.30;
-  filter: saturate(.9) brightness(.9);
+  transform: rotate(-7deg) translateX(-110px) translateY(70px) scale(.88);
+  opacity:.40;
 }
 .shotMid{
-  top:18px; left:-18px;
-  transform: rotate(-3deg) scale(.94);
-  opacity:.55;
-  filter: saturate(.95) brightness(.95);
+  transform: rotate(-2deg) translateX(-25px) translateY(28px) scale(.95);
+  opacity:.72;
 }
 .shotFront{
-  top:0; left:72px;
-  transform: rotate(4deg);
-  z-index:3;
+  transform: rotate(4deg) translateX(70px) translateY(-12px);
+  opacity:1;
 }
 
-/* =========================
-   REPORT (PDF) — “panel” to stop bleed
-========================= */
-
-.report-preview{
-  margin-top:16px;         /* bring it closer to hero */
-  padding:54px 0 70px;
-}
-
-.report-wrap{
-  position:relative;
-  border-radius: calc(var(--radius) + 8px);
-  border: 1px solid rgba(255,255,255,0.10);
-  background:
-    radial-gradient(900px 420px at 20% 20%, rgba(255,255,255,0.06), transparent 62%),
-    radial-gradient(700px 420px at 85% 35%, rgba(138,43,226,0.22), transparent 65%),
-    linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
-  box-shadow: 0 26px 90px rgba(0,0,0,0.55);
-  overflow:hidden;         /* prevents “bleeding into next section” */
-  padding:44px;
-}
-
-.report-grid{
-  display:grid;
-  grid-template-columns: 1.05fr 0.95fr;
-  gap:44px;
-  align-items:center;
-}
-
-.report-copy h2{
-  font-size:32px;
-  margin:0 0 10px;
-}
-.section-sub{opacity:0.72;margin:0 0 18px}
-
-.report-points{
-  margin-top:18px;
-  display:grid;
-  gap:10px;
-  max-width:520px;
-}
-.report-points .point{
-  padding:12px 14px;
-  border-radius:14px;
-  background: rgba(255,255,255,0.03);
-  border: 1px solid rgba(255,255,255,0.08);
-  opacity: 0.95;
-}
-
-.report-shots{
-  position:relative;
-  width:100%;
-  max-width:560px;
-  justify-self:end;
-  height:520px;
-}
-
-.pdfShot{
-  position:absolute;
-  width:420px;
-  max-width:100%;
-  height:auto;
-  display:block;
-  border-radius:18px;
-  border:1px solid rgba(255,255,255,0.10);
-  box-shadow:
-    0 30px 90px rgba(0,0,0,0.65),
-    0 10px 32px rgba(0,0,0,0.35);
-}
-
-.pdfBack{
-  top:56px; left:18px;
-  transform: rotate(-6deg) scale(.92);
-  opacity:.35;
-  filter: grayscale(.15) brightness(.95);
-}
-.pdfFront{
-  top:10px; left:110px;
-  transform: rotate(3deg);
-  z-index:2;
-}
-
-/* =========================
-   SECTIONS / CARDS
-========================= */
-
-.section{padding:70px 0}
+/* ===== Sections ===== */
+.section{padding:58px 0}
 .section h2{margin:0 0 18px;font-size:28px;letter-spacing:-0.3px}
+.section-sub{opacity:0.7;margin:0 0 22px}
 
 .cards{
   display:grid;
@@ -294,14 +194,67 @@ h1{
   opacity:0.9;
 }
 
-/* Screenshot grids */
-.screenshots{padding:80px 0; max-width: 1240px; margin:auto;}
-.screenshots h2{font-size:32px;margin-bottom:10px;}
+/* ===== PDF Report Preview (single definition; no duplicates) ===== */
+.report-preview{
+  padding:54px 0 40px;  /* ✅ tighter to hero */
+  display:grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap:56px;
+  align-items:center;
+}
+
+.report-copy h2{font-size:32px;margin:0 0 10px}
+.report-points{
+  margin-top:18px;
+  display:grid;
+  gap:10px;
+}
+.report-points .point{
+  padding:12px 14px;
+  border-radius:14px;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.08);
+  opacity: 0.95;
+}
+
+.report-shots{
+  position:relative;
+  width:100%;
+  max-width:640px;      /* ✅ bigger */
+  height:520px;
+  justify-self:end;
+}
+
+.pdfShot{
+  position:absolute;
+  width:520px;          /* ✅ bigger */
+  border-radius:18px;
+  border: 1px solid rgba(255,255,255,0.10);
+  box-shadow:
+    0 30px 80px rgba(0,0,0,0.65),
+    0 10px 30px rgba(0,0,0,0.35);
+}
+
+.pdfBack{
+  transform: rotate(-6deg) translateX(-70px) translateY(55px) scale(.92);
+  opacity:.52;
+}
+.pdfFront{
+  transform: rotate(3deg) translateX(30px) translateY(-18px);
+  opacity:1;
+  z-index:2;
+}
+
+/* ===== Screenshot grids ===== */
+.screenshots{padding:62px 0}
+.screenshots h2{font-size:32px;margin:0 0 10px}
+
 .shot-grid{
   display:grid;
   grid-template-columns: repeat(3, 1fr);
   gap:28px;
 }
+
 .shot-card{
   background: rgba(255,255,255,0.03);
   border-radius: 18px;
@@ -309,9 +262,11 @@ h1{
   border: 1px solid rgba(255,255,255,0.08);
   text-align: center;
 }
-.shot-card img{width:100%;display:block;}
-.shot-card span{display:block;padding:14px;font-weight:600;}
 
+.shot-card img{width:100%;display:block}
+.shot-card span{display:block;padding:14px;font-weight:600}
+
+/* ===== Education split ===== */
 .split{
   display:grid;
   grid-template-columns: 1.2fr 0.8fr;
@@ -328,6 +283,7 @@ h1{
 .edu-title{font-weight:700;margin-bottom:6px}
 .edu-text{color:var(--muted);margin-bottom:12px}
 
+/* ===== FAQ ===== */
 .faq details{
   border:1px solid var(--stroke);
   background: rgba(255,255,255,0.04);
@@ -338,22 +294,27 @@ h1{
 .faq summary{cursor:pointer;font-weight:650}
 .faq p{color:var(--muted);line-height:1.5;margin:10px 0 0}
 
+/* ===== Footer ===== */
 .footer{padding:28px 0;border-top:1px solid var(--stroke);background: rgba(7,9,15,0.45)}
 .footer-inner{display:flex;justify-content:space-between;align-items:center;color:var(--muted);gap:14px;flex-wrap:wrap}
 .footer-links{display:flex;gap:14px}
 .footer-links a:hover{color:var(--text)}
 
-@media (max-width: 980px){
-  .nav{display:none}
-  .hero{grid-template-columns:1fr;gap:22px;padding:56px 0 32px}
-  .heroShots{width:100%; height:520px}
-  .shot{width:min(720px, 92vw)}
-  .shotFront{left:18px}
-  .report-grid{grid-template-columns:1fr}
-  .report-shots{justify-self:start; height:520px}
-  .pdfFront{left:70px}
+/* ===== Responsive ===== */
+@media (max-width: 1020px){
+  .hero{grid-template-columns:1fr;gap:22px}
+  .heroShots{width:min(720px, 92vw); height:460px}
+  .shot{width:min(640px, 86vw)}
+  .report-preview{grid-template-columns:1fr;gap:26px}
+  .report-shots{justify-self:start;height:520px}
   .cards{grid-template-columns:1fr}
   .split{grid-template-columns:1fr}
+  .nav{display:none}
   .shot-grid{grid-template-columns:1fr}
-  .report-wrap{padding:26px}
+}
+
+@media (max-width: 520px){
+  .heroShots{height:420px}
+  .report-shots{height:480px}
+  .pdfShot{width:min(520px, 92vw)}
 }
