@@ -222,7 +222,7 @@ a{color:inherit;text-decoration:none}
 
 .report-copy{
   max-width:520px;
-  transform: translateY(-250px); /* negative = up, positive = down */
+  transform: translateY(30px); /* negative = up, positive = down */
 }
 
 .section-sub{
