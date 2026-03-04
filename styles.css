@@ -469,3 +469,4 @@ h1{
     width: 100%;
   }
 }
+body { outline: 8px solid red; }
