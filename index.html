@@ -346,15 +346,32 @@
 
     if (!lightbox || !lightboxImg || !lightboxClose || images.length === 0) return;
 
-    function applyZoom() {
-      if (zoomed) {
-        lightboxImg.style.transform = "scale(2)";
-        lightboxImg.style.cursor = "zoom-out";
-      } else {
-        lightboxImg.style.transform = "scale(1)";
-        lightboxImg.style.cursor = "zoom-in";
-      }
-    }
+ function applyZoom() {
+
+  if (zoomed) {
+    lightboxImg.style.transform = "scale(2)";
+    lightboxImg.style.cursor = "zoom-out";
+    lightboxImg.style.transformOrigin = "center center";
+
+  } else {
+    lightboxImg.style.transform = "scale(1)";
+    lightboxImg.style.cursor = "zoom-in";
+    lightboxImg.style.transformOrigin = "center center";
+  }
+
+}
+    lightboxImg.addEventListener('mousemove', (e) => {
+
+  if(!zoomed) return;
+
+  const rect = lightboxImg.getBoundingClientRect();
+
+  const x = (e.clientX - rect.left) / rect.width * 100;
+  const y = (e.clientY - rect.top) / rect.height * 100;
+
+  lightboxImg.style.transformOrigin = `${x}% ${y}%`;
+
+});
 
     function openLightbox(index) {
       currentIndex = index;
