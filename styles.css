@@ -360,3 +360,62 @@ h1{
   position: relative;
   z-index: 2;
 }
+/* =========================
+   PDF REPORT SECTION
+========================= */
+
+.report-preview{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:80px;
+  margin-top:120px;
+}
+
+/* LEFT TEXT SIDE */
+
+.report-copy{
+  max-width:420px;
+}
+
+/* RIGHT PDF STACK */
+
+.report-shots{
+  position:relative;
+  width:560px;
+  height:520px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+/* BASE IMAGE */
+
+.pdfShot{
+  position:absolute;
+  width:420px;
+  border-radius:18px;
+  box-shadow:
+    0 30px 80px rgba(0,0,0,0.65),
+    0 10px 30px rgba(0,0,0,0.35);
+}
+
+/* BACK PDF */
+
+.pdfBack{
+  transform:
+    rotate(-6deg)
+    translateX(-60px)
+    translateY(40px)
+    scale(.92);
+  opacity:.55;
+}
+
+/* FRONT PDF */
+
+.pdfFront{
+  transform:
+    rotate(3deg)
+    translateX(20px)
+    translateY(-20px);
+}
