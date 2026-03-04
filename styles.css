@@ -471,7 +471,7 @@ body{
   align-self: start;
   position: relative;
   margin-top: 0 !important;            /* kill earlier margin hacks */
-  transform: translateY(-180px);       /* <-- raise the whole PDF stack */
+  transform: translateY(-280px);       /* <-- raise the whole PDF stack */
   min-height: 640px;
 }
 
