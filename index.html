@@ -331,141 +331,131 @@
   </footer>
 
 <script>
-  document.getElementById("y").textContent = new Date().getFullYear();
+document.getElementById("y").textContent = new Date().getFullYear();
 
-  /* LIGHTBOX */
-  (function () {
-    const lightbox = document.getElementById('lightbox');
-    const lightboxImg = document.getElementById('lightboxImg');
-    const lightboxClose = document.getElementById('lightboxClose');
-    const zoomBtn = document.getElementById('lightboxZoom');
-    const images = Array.from(document.querySelectorAll('[data-lightbox]'));
+/* LIGHTBOX */
+(function () {
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightboxImg');
+  const lightboxClose = document.getElementById('lightboxClose');
+  const zoomBtn = document.getElementById('lightboxZoom');
+  const images = Array.from(document.querySelectorAll('[data-lightbox]'));
 
-    let currentIndex = 0;
-    let zoomed = false;
+  let currentIndex = 0;
+  let zoomed = false;
 
-    if (!lightbox || !lightboxImg || !lightboxClose || images.length === 0) return;
+  if (!lightbox || !lightboxImg || !lightboxClose || images.length === 0) return;
 
-function applyZoom(){
-
-  if(zoomed){
-    lightboxImg.style.transform = "scale(2)";
-    lightboxImg.style.cursor = "zoom-out";
-
-    if(zoomBtn) zoomBtn.textContent = "−";
-
-  } else {
-    lightboxImg.style.transform = "scale(1)";
-    lightboxImg.style.cursor = "zoom-in";
-
-    if(zoomBtn) zoomBtn.textContent = "+";
+  function applyZoom() {
+    if (zoomed) {
+      lightboxImg.style.transform = "scale(2)";
+      lightboxImg.style.cursor = "zoom-out";
+      if (zoomBtn) zoomBtn.textContent = "−";
+    } else {
+      lightboxImg.style.transform = "scale(1)";
+      lightboxImg.style.cursor = "zoom-in";
+      if (zoomBtn) zoomBtn.textContent = "+";
+      lightboxImg.style.transformOrigin = "50% 50%";
+    }
   }
 
-}
- lightboxImg.addEventListener('mousemove', (e) => {
+  function openLightbox(index) {
+    currentIndex = index;
 
-  if(!zoomed) return;
+    zoomed = false;
+    applyZoom();
 
-  const rect = lightboxImg.getBoundingClientRect();
+    lightboxImg.src = images[index].currentSrc || images[index].src;
+    lightboxImg.alt = images[index].alt || '';
 
-  const x = (e.clientX - rect.left) / rect.width * 100;
-  const y = (e.clientY - rect.top) / rect.height * 100;
+    lightbox.classList.add('is-open');
+    lightbox.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  }
 
-  lightboxImg.style.transformOrigin = `${x}% ${y}%`;
+  function closeLightbox() {
+    lightbox.classList.remove('is-open');
+    lightbox.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+    lightboxImg.removeAttribute('src');
 
-});
+    zoomed = false;
+    applyZoom();
+  }
 
+  function showNext() {
+    currentIndex = (currentIndex + 1) % images.length;
 
-lightboxImg.addEventListener('click', () => {
+    zoomed = false;
+    applyZoom();
 
-  zoomed = !zoomed;
+    lightboxImg.src = images[currentIndex].currentSrc || images[currentIndex].src;
+    lightboxImg.alt = images[currentIndex].alt || '';
+  }
+
+  function showPrev() {
+    currentIndex = (currentIndex - 1 + images.length) % images.length;
+
+    zoomed = false;
+    applyZoom();
+
+    lightboxImg.src = images[currentIndex].currentSrc || images[currentIndex].src;
+    lightboxImg.alt = images[currentIndex].alt || '';
+  }
+
+  // Thumbnails open lightbox
+  images.forEach((img, index) => {
+    img.style.cursor = 'zoom-in';
+    img.addEventListener('click', () => openLightbox(index));
+  });
+
+  // Click image toggles zoom
+  lightboxImg.addEventListener('click', () => {
+    zoomed = !zoomed;
+    applyZoom();
+  });
+
+  // Mouse follow zoom (only when zoomed)
+  lightboxImg.addEventListener('mousemove', (e) => {
+    if (!zoomed) return;
+
+    const rect = lightboxImg.getBoundingClientRect();
+    const x = ((e.clientX - rect.left) / rect.width) * 100;
+    const y = ((e.clientY - rect.top) / rect.height) * 100;
+
+    lightboxImg.style.transformOrigin = `${x}% ${y}%`;
+  });
+
+  // Close button
+  lightboxClose.addEventListener('click', closeLightbox);
+
+  // Click backdrop closes
+  lightbox.addEventListener('click', (e) => {
+    if (e.target === lightbox) closeLightbox();
+  });
+
+  // Keyboard controls
+  window.addEventListener('keydown', (e) => {
+    if (!lightbox.classList.contains('is-open')) return;
+
+    if (e.key === 'Escape') closeLightbox();
+    if (e.key === 'ArrowRight') showNext();
+    if (e.key === 'ArrowLeft') showPrev();
+  });
+
+  // Zoom button toggles zoom (and must NOT trigger backdrop or image click)
+  if (zoomBtn) {
+    zoomBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      zoomed = !zoomed;
+      applyZoom();
+    });
+  }
+
+  // Set initial button state
   applyZoom();
-
-});
-  if(!zoomed) return;
-
-  const rect = lightboxImg.getBoundingClientRect();
-
-  const x = (e.clientX - rect.left) / rect.width * 100;
-  const y = (e.clientY - rect.top) / rect.height * 100;
-
-  lightboxImg.style.transformOrigin = `${x}% ${y}%`;
-
-});
-
-    function openLightbox(index) {
-      currentIndex = index;
-
-      // reset zoom every time a new image opens
-      zoomed = false;
-      applyZoom();
-
-      lightboxImg.src = images[index].currentSrc || images[index].src;
-      lightboxImg.alt = images[index].alt || '';
-      lightbox.classList.add('is-open');
-      lightbox.setAttribute('aria-hidden', 'false');
-      document.body.style.overflow = 'hidden';
-    }
-
-    function closeLightbox() {
-      lightbox.classList.remove('is-open');
-      lightbox.setAttribute('aria-hidden', 'true');
-      document.body.style.overflow = '';
-      lightboxImg.removeAttribute('src');
-
-      // reset zoom when closing
-      zoomed = false;
-      applyZoom();
-    }
-
-    function showNext() {
-      currentIndex = (currentIndex + 1) % images.length;
-
-      zoomed = false;
-      applyZoom();
-
-      lightboxImg.src = images[currentIndex].currentSrc || images[currentIndex].src;
-      lightboxImg.alt = images[currentIndex].alt || '';
-    }
-
-    function showPrev() {
-      currentIndex = (currentIndex - 1 + images.length) % images.length;
-
-      zoomed = false;
-      applyZoom();
-
-      lightboxImg.src = images[currentIndex].currentSrc || images[currentIndex].src;
-      lightboxImg.alt = images[currentIndex].alt || '';
-    }
-
-    images.forEach((img, index) => {
-      img.style.cursor = 'zoom-in';
-      img.addEventListener('click', () => openLightbox(index));
-    });
-
-    lightboxClose.addEventListener('click', closeLightbox);
-
-    lightbox.addEventListener('click', (e) => {
-      if (e.target === lightbox) closeLightbox();
-    });
-
-    window.addEventListener('keydown', (e) => {
-      if (!lightbox.classList.contains('is-open')) return;
-
-      if (e.key === 'Escape') closeLightbox();
-      if (e.key === 'ArrowRight') showNext();
-      if (e.key === 'ArrowLeft') showPrev();
-    });
-
-    // Zoom button: add listener ONCE (not inside openLightbox)
-    if (zoomBtn) {
-      zoomBtn.addEventListener('click', (e) => {
-        e.preventDefault();
-        zoomed = !zoomed;
-        applyZoom();
-      });
-    }
-  })();
+})();
 </script>
 
 </body>
