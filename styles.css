@@ -440,3 +440,25 @@ body.container.section p {
 body.container.section strong {
   font-weight: 600;
 }
+/* Legal pages (privacy / terms) */
+.legal{
+  max-width: 760px;
+  line-height: 1.75;
+}
+
+.legal h1{
+  margin-bottom: 28px;
+}
+
+.legal h2{
+  margin-top: 42px;
+  margin-bottom: 14px;
+}
+
+.legal p{
+  margin: 0 0 18px;
+}
+
+.legal strong{
+  font-weight: 600;
+}
