@@ -8,20 +8,24 @@
 
   <meta name="description" content="Standalone desktop app that checks LUFS, LRA, and True Peak and returns a clear PASS / CAUTION / FAIL verdict." />
 
+  <!-- Preload hero screenshots (prevents staggered loading) -->
+  <link rel="preload" as="image" href="assets/PREMASTER%20PASS.png">
+  <link rel="preload" as="image" href="assets/PREMASTER%20CAUTION.png">
+  <link rel="preload" as="image" href="assets/PREMASTER%20FAIL.png">
+
   <!-- Styles -->
- <link rel="stylesheet" href="./styles.css?v=3">
+  <link rel="stylesheet" href="./styles.css?v=3">
 
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="./assets/favicon.png">
 
-  <!-- Open Graph (social previews) -->
+  <!-- Open Graph -->
   <meta property="og:title" content="Final Check Audio — Know When Your Track Is Ready">
   <meta property="og:description" content="Standalone desktop app that checks LUFS, LRA, and True Peak and returns a clear PASS / CAUTION / FAIL verdict.">
   <meta property="og:image" content="https://finalcheckaudio.com/assets/social-preview.png">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://finalcheckaudio.com">
 
-  <!-- Twitter preview -->
   <meta name="twitter:card" content="summary_large_image">
 </head>
 
@@ -94,19 +98,26 @@
     <section class="hero-right" aria-hidden="true">
       <div class="heroShots">
         <img class="shot shotBack"
-             src="assets/PREMASTER%20FAIL.png"
-             alt=""
-             loading="lazy" />
+     src="assets/PREMASTER%20FAIL.png"
+     width="720"
+     height="420"
+     alt=""
+     loading="eager" />
 
         <img class="shot shotMid"
-             src="assets/PREMASTER%20CAUTION.png"
-             alt=""
-             loading="lazy" />
+     src="assets/PREMASTER%20CAUTION.png"
+     width="720"
+     height="420"
+     alt=""
+     loading="eager" />
 
         <img class="shot shotFront"
-             src="assets/PREMASTER%20PASS.png"
-             alt=""
-             loading="eager" />
+     src="assets/PREMASTER%20PASS.png"
+     width="720"
+     height="420"
+     alt=""
+     loading="eager"
+     fetchpriority="high" />
       </div>
     </section>
   </main>
