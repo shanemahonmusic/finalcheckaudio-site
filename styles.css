@@ -582,4 +582,6 @@ a{color:inherit;text-decoration:none}
     margin-top: 0 !important;
   }
 
+}\@media (max-width: 768px) {
+  .hero-image { outline: 6px solid lime !important; }
 }
