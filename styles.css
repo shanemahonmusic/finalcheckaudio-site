@@ -548,32 +548,10 @@ a{color:inherit;text-decoration:none}
 .lightbox__img{
   transition: transform .25s ease;
 }
-/* Mobile hero spacing fix (proper) */
+/* Mobile hero layout fix */
 @media (max-width: 768px) {
 
-  /* 1) Stop the hero from forcing a full-screen height on mobile */
-  .hero {
-    min-height: auto !important;
-    height: auto !important;
-    padding-bottom: 24px !important;
-  }
-
-  /* 2) Move the image visually WITHOUT affecting layout flow */
-  .hero-image {
-    margin-top: 40px !important;
-    margin-bottom: 0 !important;
-    transform: translateY(40px);
-  }
-
-  /* 3) Pull the next section up a bit (remove the dead gap) */
-  .what-it-does {
-    margin-top: -120px;
-  }
-}
-/* MOBILE: remove forced hero height that creates the dead gap */
-@media (max-width: 768px) {
-
-  /* one of these will be your actual hero wrapper — keep all 3 */
+  /* Stop hero forcing full screen height */
   .hero,
   .hero-section,
   .hero-content {
@@ -582,7 +560,7 @@ a{color:inherit;text-decoration:none}
     padding-bottom: 24px !important;
   }
 
-  /* if you have a wrapper around the image, this is often the real culprit */
+  /* Remove extra spacing from hero visual wrappers */
   .hero-media,
   .hero-visual,
   .hero-shot-wrap,
@@ -591,9 +569,15 @@ a{color:inherit;text-decoration:none}
     padding-bottom: 0 !important;
   }
 
-  /* move screenshot without affecting layout flow */
+  /* Move screenshot down slightly without breaking layout */
   .hero-image {
     margin: 0 !important;
-    transform: translateY(24px);
+    transform: translateY(32px);
   }
+
+  /* Remove dead space before next section */
+  .what-it-does {
+    margin-top: -80px;
+  }
+
 }
