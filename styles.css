@@ -548,35 +548,27 @@ a{color:inherit;text-decoration:none}
 .lightbox__img{
   transition: transform .25s ease;
 }
-/* Mobile hero layout fix */
+/* MOBILE: fix hero screenshot gap (targets the real elements) */
 @media (max-width: 768px) {
 
-  .hero,
-  .hero-section,
-  .hero-content {
-    min-height: auto !important;
-    height: auto !important;
-    padding-bottom: 0 !important;
+  /* tighten hero vertical padding */
+  .hero{
+    padding: 38px 0 0 !important;
+    gap: 14px !important;
   }
 
-  .hero-media,
-  .hero-visual,
-  .hero-shot-wrap,
-  .hero-image-wrap {
-    margin-bottom: 0 !important;
-    padding-bottom: 0 !important;
+  /* the reserved space causing the dead gap */
+  .heroShots{
+    height: 300px !important;     /* was 440px on <=920 */
   }
 
-  /* Use margins (layout) not transform (visual only) */
-  .hero-image {
-    display: block;
-    margin-top: 32px !important;
-    margin-bottom: -220px !important; /* tune: -180 to -280 */
-    transform: none !important;
-  }
+  /* keep shots positioned but reduce how low they sit */
+  .shotBack{ top: 26px !important; left: -36px !important; }
+  .shotMid { top: 12px !important; left: -12px !important; }
+  .shotFront{ top: 0 !important;   left: 26px !important; }
 
-  .what-it-does {
-    margin-top: 0 !important;
-    padding-top: 0 !important;
+  /* optional: remove extra section padding so "What it does" rises naturally */
+  .section{
+    padding-top: 28px !important; /* was 54px */
   }
 }
