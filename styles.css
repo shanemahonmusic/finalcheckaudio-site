@@ -548,27 +548,23 @@ a{color:inherit;text-decoration:none}
 .lightbox__img{
   transition: transform .25s ease;
 }
-/* MOBILE: fix hero screenshot gap (targets the real elements) */
+/* MOBILE: fix hero screenshot spacing */
 @media (max-width: 768px) {
 
-  /* tighten hero vertical padding */
   .hero{
     padding: 38px 0 0 !important;
     gap: 14px !important;
   }
 
-  /* container for screenshots */
   .heroShots{
-    height: 300px !important;     
-    margin-top: 32px !important;  /* <-- adds breathing room from buttons */
+    height: 300px !important;
   }
 
-  /* keep shots positioned but reduce how low they sit */
-  .shotBack{ top: 26px !important; left: -36px !important; }
-  .shotMid { top: 12px !important; left: -12px !important; }
-  .shotFront{ top: 0 !important;   left: 26px !important; }
+  /* move screenshots down away from buttons */
+  .shotBack{ top: 60px !important; left: -36px !important; }
+  .shotMid { top: 46px !important; left: -12px !important; }
+  .shotFront{ top: 34px !important; left: 26px !important; }
 
-  /* remove extra section padding so "What it does" rises naturally */
   .section{
     padding-top: 28px !important;
   }
