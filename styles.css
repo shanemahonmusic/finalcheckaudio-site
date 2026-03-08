@@ -290,6 +290,9 @@ a{color:inherit;text-decoration:none}
     rotate(3deg)
     translate(20px, 10px);
 }
+.pdfFront{
+  cursor: zoom-in;
+}
 
 /* =========================
    SECTIONS / CARDS
