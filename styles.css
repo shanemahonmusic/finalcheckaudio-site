@@ -339,6 +339,33 @@ a{color:inherit;text-decoration:none}
 .shot-card img{width:100%;display:block}
 .shot-card span{display:block;padding:14px;font-weight:600}
 
+/* ================= MEASUREMENT STANDARDS ================= */
+
+.standards-box{
+  margin-top:20px;
+  padding:28px;
+  border-radius:14px;
+
+  background:linear-gradient(
+    135deg,
+    rgba(255,255,255,0.04),
+    rgba(255,255,255,0.02)
+  );
+
+  border:1px solid rgba(255,255,255,0.08);
+
+  max-width:760px;
+}
+
+.standards-box p{
+  margin-bottom:14px;
+  line-height:1.6;
+}
+
+.standards-box p:last-child{
+  margin-bottom:0;
+}
+
 /* Education split */
 .split{
   display:grid;
