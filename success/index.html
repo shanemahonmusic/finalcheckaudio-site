@@ -1,0 +1,296 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Purchase Confirmed — Final Check Audio</title>
+
+  <link rel="stylesheet" href="/styles.css?v=3">
+  <link rel="icon" href="/assets/favicon.png" type="image/png">
+  <link rel="shortcut icon" href="/assets/favicon.png">
+
+  <style>
+    .success-wrap {
+      max-width: 760px;
+      margin: 80px auto;
+      padding: 24px;
+    }
+
+    .success-card {
+      background: #ffffff;
+      border: 1px solid #e5e7eb;
+      border-radius: 20px;
+      padding: 34px;
+      box-shadow: 0 10px 35px rgba(0,0,0,0.05);
+    }
+
+    .success-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 18px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: #eef2ff;
+      color: #4338ca;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+
+    .success-card h1 {
+      margin: 0 0 14px;
+      font-size: 36px;
+      line-height: 1.1;
+      color: #0f172a;
+      font-weight: 700;
+    }
+
+    .success-lead {
+      margin: 0 0 14px;
+      font-size: 17px;
+      line-height: 1.65;
+      color: #475569;
+    }
+
+    .success-note {
+      margin: 22px 0 0;
+      padding: 16px 18px;
+      border: 1px solid #e5e7eb;
+      border-radius: 14px;
+      background: #f8fafc;
+      color: #475569;
+      font-size: 15px;
+      line-height: 1.6;
+    }
+
+    .success-note strong {
+      color: #111827;
+    }
+
+    .download-section {
+      margin-top: 28px;
+    }
+
+    .download-title {
+      margin: 0 0 14px;
+      font-size: 15px;
+      font-weight: 700;
+      color: #111827;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+    }
+
+    .download-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .download-card {
+      display: block;
+      padding: 18px 18px;
+      border-radius: 16px;
+      border: 1px solid #e5e7eb;
+      background: #ffffff;
+      text-decoration: none;
+      transition: transform .05s ease, box-shadow .12s ease, border-color .12s ease;
+    }
+
+    .download-card:hover {
+      transform: translateY(-1px);
+      border-color: #c7d2fe;
+      box-shadow: 0 8px 22px rgba(79,70,229,0.10);
+    }
+
+    .download-label {
+      display: block;
+      font-size: 18px;
+      font-weight: 700;
+      color: #111827;
+      margin-bottom: 6px;
+    }
+
+    .download-sub {
+      display: block;
+      font-size: 14px;
+      line-height: 1.5;
+      color: #64748b;
+    }
+
+    .success-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 26px;
+    }
+
+    .success-links .btn {
+      text-decoration: none;
+    }
+
+    .btn-inline {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 0 18px;
+      border-radius: 12px;
+      font-size: 15px;
+      font-weight: 700;
+      text-decoration: none;
+      border: 1px solid #d1d5db;
+      background: #ffffff;
+      color: #111827;
+      transition: transform .05s ease, box-shadow .12s ease, border-color .12s ease;
+    }
+
+    .btn-inline:hover {
+      transform: translateY(-1px);
+      border-color: #c7d2fe;
+      box-shadow: 0 8px 22px rgba(79,70,229,0.10);
+    }
+
+    .btn-inline.primary {
+      border: 0;
+      background: linear-gradient(135deg,#6366f1,#4f46e5);
+      color: #ffffff;
+    }
+
+    .btn-inline.primary:hover {
+      box-shadow: 0 10px 24px rgba(79,70,229,0.22);
+    }
+
+    .helper-list {
+      margin-top: 24px;
+      padding-left: 18px;
+      color: #475569;
+      font-size: 15px;
+      line-height: 1.7;
+    }
+
+    .helper-list li + li {
+      margin-top: 6px;
+    }
+
+    .helper-list a {
+      color: #4f46e5;
+      text-decoration: none;
+    }
+
+    .helper-list a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 700px) {
+      .success-wrap {
+        margin: 48px auto;
+        padding: 18px;
+      }
+
+      .success-card {
+        padding: 24px;
+      }
+
+      .success-card h1 {
+        font-size: 30px;
+      }
+
+      .download-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .success-links {
+        flex-direction: column;
+      }
+
+      .btn-inline {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="bg" aria-hidden="true">
+    <div class="bg-grid"></div>
+    <div class="bg-glow"></div>
+  </div>
+
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <a class="brand" href="/" aria-label="Final Check Audio home">
+        <img src="/assets/logo.png" alt="Final Check Audio logo" class="brand-mark">
+        <div class="brand-text">
+          <div class="brand-name">Final Check Audio</div>
+          <div class="brand-sub">MVP Final Check</div>
+        </div>
+      </a>
+    </div>
+  </header>
+
+  <main class="success-wrap">
+    <section class="success-card">
+      <div class="success-kicker">Purchase confirmed</div>
+
+      <h1>Thank you for your purchase.</h1>
+
+      <p class="success-lead">
+        Your purchase was successful. Your licence key and access details have been sent to your email address.
+      </p>
+
+      <p class="success-lead">
+        You can download your copy below while you wait for the email to arrive.
+      </p>
+
+      <div class="download-section">
+        <div class="download-title">Download MVP Final Check</div>
+
+        <div class="download-grid">
+          <a class="download-card" href="#">
+            <span class="download-label">Download for Mac</span>
+            <span class="download-sub">macOS build for Apple Silicon / Intel as applicable</span>
+          </a>
+
+          <a class="download-card" href="#">
+            <span class="download-label">Download for Windows</span>
+            <span class="download-sub">Windows installer build</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="success-note">
+        <strong>Didn’t receive your email yet?</strong> Please check your inbox, spam, junk, or promotions folder first. If needed, you can retrieve your licence again below.
+      </div>
+
+      <div class="success-links">
+        <a class="btn-inline primary" href="/retrieve">Retrieve Licence</a>
+        <a class="btn-inline" href="mailto:support@finalcheckaudio.com">Contact Support</a>
+      </div>
+
+      <ul class="helper-list">
+        <li>Your licence key is sent by email for security and recovery purposes.</li>
+        <li>If you close this page, you can still download again later and retrieve your licence via <a href="/retrieve">Retrieve Licence</a>.</li>
+        <li>If you have any issues with activation or downloads, contact <a href="mailto:support@finalcheckaudio.com">support@finalcheckaudio.com</a>.</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div>© <span id="y"></span> Final Check Audio Ltd</div>
+
+      <div class="footer-links">
+        <a href="mailto:support@finalcheckaudio.com">Support</a>
+        <a href="/retrieve">Retrieve Licence</a>
+        <a href="/privacy">Privacy</a>
+        <a href="/terms">Terms</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("y").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
