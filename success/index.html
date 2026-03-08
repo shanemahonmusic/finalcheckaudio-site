@@ -11,7 +11,7 @@
 
   <style>
     .success-wrap {
-      max-width: 760px;
+      max-width: 860px;
       margin: 80px auto;
       padding: 24px;
     }
@@ -21,7 +21,7 @@
       border: 1px solid #e5e7eb;
       border-radius: 20px;
       padding: 34px;
-      box-shadow: 0 10px 35px rgba(0,0,0,0.05);
+      box-shadow: 0 10px 35px rgba(0, 0, 0, 0.05);
     }
 
     .success-kicker {
@@ -83,13 +83,13 @@
 
     .download-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: repeat(3, 1fr);
       gap: 14px;
     }
 
     .download-card {
       display: block;
-      padding: 18px 18px;
+      padding: 18px;
       border-radius: 16px;
       border: 1px solid #e5e7eb;
       background: #ffffff;
@@ -100,11 +100,12 @@
     .download-card:hover {
       transform: translateY(-1px);
       border-color: #c7d2fe;
-      box-shadow: 0 8px 22px rgba(79,70,229,0.10);
+      box-shadow: 0 8px 22px rgba(79, 70, 229, 0.10);
     }
 
     .download-label {
-      display: block;
+      display: flex;
+      align-items: center;
       font-size: 18px;
       font-weight: 700;
       color: #111827;
@@ -148,17 +149,17 @@
     .btn-inline:hover {
       transform: translateY(-1px);
       border-color: #c7d2fe;
-      box-shadow: 0 8px 22px rgba(79,70,229,0.10);
+      box-shadow: 0 8px 22px rgba(79, 70, 229, 0.10);
     }
 
     .btn-inline.primary {
       border: 0;
-      background: linear-gradient(135deg,#6366f1,#4f46e5);
+      background: linear-gradient(135deg, #6366f1, #4f46e5);
       color: #ffffff;
     }
 
     .btn-inline.primary:hover {
-      box-shadow: 0 10px 24px rgba(79,70,229,0.22);
+      box-shadow: 0 10px 24px rgba(79, 70, 229, 0.22);
     }
 
     .helper-list {
@@ -182,6 +183,12 @@
       text-decoration: underline;
     }
 
+    @media (max-width: 900px) {
+      .download-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
     @media (max-width: 700px) {
       .success-wrap {
         margin: 48px auto;
@@ -194,10 +201,6 @@
 
       .success-card h1 {
         font-size: 30px;
-      }
-
-      .download-grid {
-        grid-template-columns: 1fr;
       }
 
       .success-links {
@@ -247,14 +250,52 @@
         <div class="download-title">Download MVP Final Check</div>
 
         <div class="download-grid">
-          <a class="download-card" href="#">
-            <span class="download-label">Download for Mac</span>
-            <span class="download-sub">macOS build for Apple Silicon / Intel as applicable</span>
+          <a
+            class="download-card"
+            href="https://pub-76b7e85ff0724ea9b336aa2d62091514.r2.dev/MVP%20Final%20Check_0.1.7_universal.dmg"
+            download
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <span class="download-label">
+              <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" style="margin-right:6px;">
+                <path fill="#111827" d="M16.365 1.43c0 1.14-.45 2.22-1.24 3.02-.84.86-2.21 1.52-3.38 1.42-.15-1.09.44-2.26 1.23-3.08.86-.9 2.35-1.54 3.39-1.36zm4.04 16.45c-.79 1.81-1.75 3.6-3.1 3.63-1.3.03-1.72-.77-3.21-.77-1.49 0-1.96.75-3.17.8-1.29.05-2.27-1.3-3.07-3.09-1.62-3.73-.29-9.2 2.85-9.36 1.26-.06 2.45.86 3.2.86.75 0 2.17-1.06 3.66-.9.62.03 2.36.25 3.48 1.9-.09.06-2.08 1.22-2.06 3.63.02 2.88 2.53 3.84 2.56 3.86-.02.06-.39 1.34-1.14 2.44z"/>
+              </svg>
+              Download for Mac
+            </span>
+            <span class="download-sub">Universal macOS build for Apple Silicon and Intel</span>
           </a>
 
-          <a class="download-card" href="#">
-            <span class="download-label">Download for Windows</span>
-            <span class="download-sub">Windows installer build</span>
+          <a
+            class="download-card"
+            href="https://pub-76b7e85ff0724ea9b336aa2d62091514.r2.dev/MVP%20Final%20Check_0.1.7_x64_en-US.msi"
+            download
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <span class="download-label">
+              <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" style="margin-right:6px;">
+                <path fill="#111827" d="M3 3h8v8H3V3zm10 0h8v8h-8V3zM3 13h8v8H3v-8zm10 0h8v8h-8v-8z"/>
+              </svg>
+              Download for Windows x64
+            </span>
+            <span class="download-sub">Recommended for most modern Windows computers</span>
+          </a>
+
+          <a
+            class="download-card"
+            href="https://pub-76b7e85ff0724ea9b336aa2d62091514.r2.dev/MVP%20Final%20Check_0.1.7_x86_en-US.msi"
+            download
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <span class="download-label">
+              <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" style="margin-right:6px;">
+                <path fill="#111827" d="M3 3h8v8H3V3zm10 0h8v8h-8V3zM3 13h8v8H3v-8zm10 0h8v8h-8v-8z"/>
+              </svg>
+              Download for Windows x86
+            </span>
+            <span class="download-sub">Use this if you specifically need the 32-bit Windows build</span>
           </a>
         </div>
       </div>
@@ -270,7 +311,8 @@
 
       <ul class="helper-list">
         <li>Your licence key is sent by email for security and recovery purposes.</li>
-        <li>If you close this page, you can download the software again later using the link in your licence email, or retrieve your licence again via Retrieve Licence.</a>.</li>
+        <li>If you close this page, you can download the software again later using the link in your licence email, or retrieve your licence again via <a href="/retrieve">Retrieve Licence</a>.</li>
+        <li>If you are unsure which Windows version to use, try x64 first. Use x86 only if you know you need the 32-bit installer.</li>
         <li>If you have any issues with activation or downloads, contact <a href="mailto:support@finalcheckaudio.com">support@finalcheckaudio.com</a>.</li>
       </ul>
     </section>
