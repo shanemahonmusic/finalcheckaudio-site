@@ -367,6 +367,19 @@ a{color:inherit;text-decoration:none}
 .standards-box p:last-child{
   margin-bottom:0;
 }
+.standards{
+  align-items:start;
+}
+
+.standards-sub{
+  max-width: 34ch;
+}
+
+.standards-box{
+  justify-self:end;
+  width:100%;
+  max-width:500px;
+}
 
 /* Education split */
 .split{
