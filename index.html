@@ -8,16 +8,16 @@
 
   <meta name="description" content="Standalone desktop app that checks LUFS, LRA, and True Peak and returns a clear PASS / CAUTION / FAIL verdict." />
 
-  <!-- Preload hero screenshots (prevents staggered loading) -->
-  <link rel="preload" as="image" href="assets/PREMASTER%20PASS.png">
-  <link rel="preload" as="image" href="assets/PREMASTER%20CAUTION.png">
-  <link rel="preload" as="image" href="assets/PREMASTER%20FAIL.png">
+  <!-- Preload hero screenshots -->
+  <link rel="preload" as="image" href="/assets/PREMASTER%20PASS.png">
+  <link rel="preload" as="image" href="/assets/PREMASTER%20CAUTION.png">
+  <link rel="preload" as="image" href="/assets/PREMASTER%20FAIL.png">
 
   <!-- Styles -->
-  <link rel="stylesheet" href="./styles.css?v=3">
+  <link rel="stylesheet" href="/styles.css?v=3">
 
   <!-- Favicon -->
-  <link rel="icon" type="image/png" href="./assets/favicon.png">
+  <link rel="icon" type="image/png" href="/assets/favicon.png">
 
   <!-- Open Graph -->
   <meta property="og:title" content="Final Check Audio - Know When Your Track Is Ready">
@@ -37,13 +37,13 @@
 
   <header class="topbar">
     <div class="container topbar-inner">
-      <div class="brand">
-        <img src="./assets/logo.png" alt="Final Check Audio logo" class="brand-mark">
+      <a class="brand" href="/" aria-label="Final Check Audio home">
+        <img src="/assets/logo.png" alt="Final Check Audio logo" class="brand-mark">
         <div class="brand-text">
           <div class="brand-name">Final Check Audio</div>
           <div class="brand-sub">MVP Final Check</div>
         </div>
-      </div>
+      </a>
 
       <nav class="nav" aria-label="Primary">
         <a href="#features">Features</a>
@@ -79,47 +79,52 @@
 
       <h1>Know When Your Track Is Ready.</h1>
 
-     <p class="lead">
-Import a Premaster or Master and receive a clear PASS / CAUTION / FAIL verdict
-based on Integrated LUFS, Loudness Range, and True Peak, along with practical
-suggestions for what to adjust next.
-</p>
+      <p class="lead">
+        Import a Premaster or Master and receive a clear PASS / CAUTION / FAIL verdict
+        based on Integrated LUFS, Loudness Range, and True Peak, along with practical
+        suggestions for what to adjust next.
+      </p>
 
       <div class="cta-row">
         <a class="btn primary disabled" href="#">Launching Soon</a>
         <a class="btn ghost" href="mailto:support@finalcheckaudio.com">Get In Touch</a>
       </div>
 
-    <div class="fineprint">
-  <span>Not a DAW Plugin.</span>
-  <span>One-Time Purchase.</span>
-</div>
+      <div class="fineprint">
+        <span>Not a DAW Plugin.</span>
+        <span>One-Time Purchase.</span>
+      </div>
     </section>
 
-    <!-- Use aria-hidden because these are decorative shots -->
     <section class="hero-right" aria-hidden="true">
       <div class="heroShots">
-        <img class="shot shotBack"
-     src="assets/PREMASTER%20FAIL.png"
-     width="720"
-     height="420"
-     alt=""
-     loading="eager" />
+        <img
+          class="shot shotBack"
+          src="/assets/PREMASTER%20FAIL.png"
+          width="720"
+          height="420"
+          alt=""
+          loading="eager"
+        />
 
-        <img class="shot shotMid"
-     src="assets/PREMASTER%20CAUTION.png"
-     width="720"
-     height="420"
-     alt=""
-     loading="eager" />
+        <img
+          class="shot shotMid"
+          src="/assets/PREMASTER%20CAUTION.png"
+          width="720"
+          height="420"
+          alt=""
+          loading="eager"
+        />
 
-        <img class="shot shotFront"
-     src="assets/PREMASTER%20PASS.png"
-     width="720"
-     height="420"
-     alt=""
-     loading="eager"
-     fetchpriority="high" />
+        <img
+          class="shot shotFront"
+          src="/assets/PREMASTER%20PASS.png"
+          width="720"
+          height="420"
+          alt=""
+          loading="eager"
+          fetchpriority="high"
+        />
       </div>
     </section>
   </main>
@@ -170,42 +175,46 @@ suggestions for what to adjust next.
     </div>
   </section>
 
-<!-- PDF REPORT PREVIEW -->
-<section class="container report-preview" id="report">
-  <div class="container">
-    <div class="report-wrap">
-      <div class="report-grid">
-        <div class="report-copy">
-          <h2>PDF report (optional export)</h2>
-          <p class="section-sub">
-            Generate a clean sign-off style PDF to share with clients, labels, or collaborators.
-            Keeps the verdict, key metrics, and fix-first actions in one place.
-          </p>
+  <!-- PDF REPORT PREVIEW -->
+  <section class="container report-preview" id="report">
+    <div class="container">
+      <div class="report-wrap">
+        <div class="report-grid">
+          <div class="report-copy">
+            <h2>PDF report (optional export)</h2>
+            <p class="section-sub">
+              Generate a clean sign-off style PDF to share with clients, labels, or collaborators.
+              Keeps the verdict, key metrics, and fix-first actions in one place.
+            </p>
 
-          <div class="report-points">
-            <div class="point">Verdict summary (PASS / CAUTION / FAIL)</div>
-            <div class="point">Integrated LUFS, LRA, True Peak</div>
-            <div class="point">3 reasons + 3 fix-first actions</div>
+            <div class="report-points">
+              <div class="point">Verdict summary (PASS / CAUTION / FAIL)</div>
+              <div class="point">Integrated LUFS, LRA, True Peak</div>
+              <div class="point">3 reasons + 3 fix-first actions</div>
+            </div>
           </div>
-        </div>
 
-        <div class="report-shots" aria-label="PDF report preview">
-          <img class="pdfShot pdfBack"
-               src="assets/CAUTION%20PDF.png"
-               alt=""
-               loading="lazy"
-               aria-hidden="true" />
+          <div class="report-shots" aria-label="PDF report preview">
+            <img
+              class="pdfShot pdfBack"
+              src="/assets/CAUTION%20PDF.png"
+              alt=""
+              loading="lazy"
+              aria-hidden="true"
+            />
 
-          <img class="pdfShot pdfFront"
-               src="assets/PASS%20PDF.png"
-               alt="Audio QC PDF report preview"
-               loading="lazy"
-               data-lightbox />
+            <img
+              class="pdfShot pdfFront"
+              src="/assets/PASS%20PDF.png"
+              alt="Audio QC PDF report preview"
+              loading="lazy"
+              data-lightbox
+            />
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
   <!-- SCREENSHOTS -->
   <section class="container section screenshots">
@@ -214,17 +223,17 @@ suggestions for what to adjust next.
 
     <div class="shot-grid">
       <div class="shot-card">
-        <img src="assets/PREMASTER%20PASS.png" alt="Premaster PASS verdict" loading="lazy" data-lightbox>
+        <img src="/assets/PREMASTER%20PASS.png" alt="Premaster PASS verdict" loading="lazy" data-lightbox>
         <span>PASS</span>
       </div>
 
       <div class="shot-card">
-        <img src="assets/PREMASTER%20CAUTION.png" alt="Premaster CAUTION verdict" loading="lazy" data-lightbox>
+        <img src="/assets/PREMASTER%20CAUTION.png" alt="Premaster CAUTION verdict" loading="lazy" data-lightbox>
         <span>CAUTION</span>
       </div>
 
       <div class="shot-card">
-        <img src="assets/PREMASTER%20FAIL.png" alt="Premaster FAIL verdict" loading="lazy" data-lightbox>
+        <img src="/assets/PREMASTER%20FAIL.png" alt="Premaster FAIL verdict" loading="lazy" data-lightbox>
         <span>FAIL</span>
       </div>
     </div>
@@ -234,58 +243,54 @@ suggestions for what to adjust next.
 
     <div class="shot-grid">
       <div class="shot-card">
-        <img src="assets/MASTER%20PASS.png" alt="Master PASS verdict" loading="lazy" data-lightbox>
+        <img src="/assets/MASTER%20PASS.png" alt="Master PASS verdict" loading="lazy" data-lightbox>
         <span>PASS</span>
       </div>
 
       <div class="shot-card">
-        <img src="assets/MASTER%20CAUTION.png" alt="Master CAUTION verdict" loading="lazy" data-lightbox>
+        <img src="/assets/MASTER%20CAUTION.png" alt="Master CAUTION verdict" loading="lazy" data-lightbox>
         <span>CAUTION</span>
       </div>
 
       <div class="shot-card">
-        <img src="assets/MASTER%20FAIL.png" alt="Master FAIL verdict" loading="lazy" data-lightbox>
+        <img src="/assets/MASTER%20FAIL.png" alt="Master FAIL verdict" loading="lazy" data-lightbox>
         <span>FAIL</span>
       </div>
     </div>
   </section>
 
-<!-- MEASUREMENT STANDARDS -->
-<section class="container section split standards">
+  <!-- MEASUREMENT STANDARDS -->
+  <section class="container section split standards">
+    <div>
+      <div class="section-kicker">Technical</div>
+      <h2>Measurement standards</h2>
 
-  <div>
-    <div class="section-kicker">Technical</div>
-<h2>Measurement standards</h2>
+      <p class="section-sub standards-sub">
+        MVP Final Check analyses audio using established loudness measurement
+        standards used across broadcast and mastering workflows.
+      </p>
+    </div>
 
-    <p class="section-sub standards-sub">
-  MVP Final Check analyses audio using established loudness measurement
-  standards used across broadcast and mastering workflows.
-</p>
-  </div>
+    <div class="standards-box">
+      <p>
+        Integrated loudness (LUFS) and loudness range (LRA) follow the
+        <strong>EBU R128 / ITU-R BS.1770-4</strong> loudness model.
+      </p>
 
-  <div class="standards-box">
+      <p>
+        True peak levels are measured using
+        <strong>oversampled inter-sample peak detection</strong>,
+        allowing the system to identify peaks that may occur between
+        digital samples during playback.
+      </p>
 
-    <p>
-      Integrated loudness (LUFS) and loudness range (LRA) follow the
-      <strong>EBU R128 / ITU-R BS.1770-4</strong> loudness model.
-    </p>
+      <p>
+        All analysis runs <strong>locally on your computer</strong>.
+        Audio files are never uploaded, stored, or transmitted.
+      </p>
+    </div>
+  </section>
 
-    <p>
-      True peak levels are measured using
-      <strong>oversampled inter-sample peak detection</strong>,
-      allowing the system to identify peaks that may occur between
-      digital samples during playback.
-    </p>
-
-    <p>
-      All analysis runs <strong>locally on your computer</strong>.
-      Audio files are never uploaded, stored, or transmitted.
-    </p>
-
-  </div>
-
-</section>
-  
   <!-- EDUCATION -->
   <section id="edu" class="container section split">
     <div>
@@ -326,12 +331,12 @@ suggestions for what to adjust next.
 
       <details>
         <summary>What does the app analyse?</summary>
-        <p>MVP Final Check measures Integrated LUFS, Loudness Range (LRA), and True Peak to determine whether your track is ready for to be sent to a sound engineer or for release.</p>
+        <p>MVP Final Check measures Integrated LUFS, Loudness Range (LRA), and True Peak to determine whether your track is ready to be sent to a sound engineer or for release.</p>
       </details>
 
       <details>
         <summary>What does PASS / CAUTION / FAIL mean?</summary>
-        <p>The app compares your track against release ready thresholds. PASS means it's ready to deliver, CAUTION highlights minor issues, and FAIL means it likely needs correction before sending to the Sound Engineer or before release.</p>
+        <p>The app compares your track against release-ready thresholds. PASS means it's ready to deliver, CAUTION highlights minor issues, and FAIL means it likely needs correction before sending to a sound engineer or before release.</p>
       </details>
 
       <details>
@@ -361,7 +366,7 @@ suggestions for what to adjust next.
 
       <details>
         <summary>Who is this tool for?</summary>
-        <p>MVP Final Check is designed for Audio Producers, Mix Engineers, Mastering Engineers, Managers and Record Label teams who want a professional and fast verification step before release and for Audio Producers who want a confidence check before sending it out.</p>
+        <p>MVP Final Check is designed for Audio Producers, Mix Engineers, Mastering Engineers, Managers and Record Label teams who want a professional and fast verification step before release, and for Audio Producers who want a confidence check before sending their track out.</p>
       </details>
 
       <details>
@@ -377,177 +382,160 @@ suggestions for what to adjust next.
   </section>
 
   <!-- LIGHTBOX -->
- <div id="lightbox" class="lightbox" aria-hidden="true">
-  <button class="lightbox__close" id="lightboxClose" aria-label="Close" type="button">×</button>
-
-<button class="lightbox__zoom" id="lightboxZoom" aria-label="Zoom" type="button">
-    🔍
-  </button>
-
-  <img id="lightboxImg" class="lightbox__img" alt="">
-</div>
+  <div id="lightbox" class="lightbox" aria-hidden="true">
+    <button class="lightbox__close" id="lightboxClose" aria-label="Close" type="button">×</button>
+    <button class="lightbox__zoom" id="lightboxZoom" aria-label="Zoom" type="button">🔍</button>
+    <img id="lightboxImg" class="lightbox__img" alt="">
+  </div>
 
   <footer class="footer">
     <div class="container footer-inner">
       <div>© <span id="y"></span> Final Check Audio Ltd</div>
 
       <div class="footer-links">
-  <a href="mailto:support@finalcheckaudio.com">Support</a>
-  <a href="/retrieve">Retrieve Licence</a>
-  <a href="/privacy">Privacy</a>
-  <a href="/terms">Terms</a>
-</div>
+        <a href="mailto:support@finalcheckaudio.com">Support</a>
+        <a href="/retrieve">Retrieve Licence</a>
+        <a href="/privacy">Privacy</a>
+        <a href="/terms">Terms</a>
+      </div>
     </div>
   </footer>
 
-<script>
-document.getElementById("y").textContent = new Date().getFullYear();
+  <script>
+    document.getElementById("y").textContent = new Date().getFullYear();
 
-/* LIGHTBOX */
-(function () {
-  const lightbox = document.getElementById('lightbox');
-  const lightboxImg = document.getElementById('lightboxImg');
-  const lightboxClose = document.getElementById('lightboxClose');
-  const zoomBtn = document.getElementById('lightboxZoom');
-  const images = Array.from(document.querySelectorAll('[data-lightbox]'));
+    /* LIGHTBOX */
+    (function () {
+      const lightbox = document.getElementById("lightbox");
+      const lightboxImg = document.getElementById("lightboxImg");
+      const lightboxClose = document.getElementById("lightboxClose");
+      const zoomBtn = document.getElementById("lightboxZoom");
+      const images = Array.from(document.querySelectorAll("[data-lightbox]"));
 
-  let currentIndex = 0;
-  let zoomed = false;
+      let currentIndex = 0;
+      let zoomed = false;
 
-  if (!lightbox || !lightboxImg || !lightboxClose || images.length === 0) return;
+      if (!lightbox || !lightboxImg || !lightboxClose || images.length === 0) return;
 
-  function applyZoom() {
-    if (zoomed) {
-      lightboxImg.style.transform = "scale(2)";
-      lightboxImg.style.cursor = "zoom-out";
-      if (zoomBtn) zoomBtn.textContent = "−";
-    } else {
-      lightboxImg.style.transform = "scale(1)";
-      lightboxImg.style.cursor = "zoom-in";
-      if (zoomBtn) zoomBtn.textContent = "+";
-      lightboxImg.style.transformOrigin = "50% 50%";
-    }
-  }
+      function applyZoom() {
+        if (zoomed) {
+          lightboxImg.style.transform = "scale(2)";
+          lightboxImg.style.cursor = "zoom-out";
+          if (zoomBtn) zoomBtn.textContent = "−";
+        } else {
+          lightboxImg.style.transform = "scale(1)";
+          lightboxImg.style.cursor = "zoom-in";
+          if (zoomBtn) zoomBtn.textContent = "+";
+          lightboxImg.style.transformOrigin = "50% 50%";
+        }
+      }
 
-  function openLightbox(index) {
-    currentIndex = index;
+      function openLightbox(index) {
+        currentIndex = index;
+        zoomed = false;
+        applyZoom();
 
-    zoomed = false;
-    applyZoom();
+        lightboxImg.src = images[index].currentSrc || images[index].src;
+        lightboxImg.alt = images[index].alt || "";
 
-    lightboxImg.src = images[index].currentSrc || images[index].src;
-    lightboxImg.alt = images[index].alt || '';
+        lightbox.classList.add("is-open");
+        lightbox.setAttribute("aria-hidden", "false");
+        document.body.style.overflow = "hidden";
+      }
 
-    lightbox.classList.add('is-open');
-    lightbox.setAttribute('aria-hidden', 'false');
-    document.body.style.overflow = 'hidden';
-  }
+      function closeLightbox() {
+        lightbox.classList.remove("is-open");
+        lightbox.setAttribute("aria-hidden", "true");
+        document.body.style.overflow = "";
+        lightboxImg.removeAttribute("src");
 
-  function closeLightbox() {
-    lightbox.classList.remove('is-open');
-    lightbox.setAttribute('aria-hidden', 'true');
-    document.body.style.overflow = '';
-    lightboxImg.removeAttribute('src');
+        zoomed = false;
+        applyZoom();
+      }
 
-    zoomed = false;
-    applyZoom();
-  }
+      function showNext() {
+        currentIndex = (currentIndex + 1) % images.length;
+        zoomed = false;
+        applyZoom();
 
-  function showNext() {
-    currentIndex = (currentIndex + 1) % images.length;
+        lightboxImg.src = images[currentIndex].currentSrc || images[currentIndex].src;
+        lightboxImg.alt = images[currentIndex].alt || "";
+      }
 
-    zoomed = false;
-    applyZoom();
+      function showPrev() {
+        currentIndex = (currentIndex - 1 + images.length) % images.length;
+        zoomed = false;
+        applyZoom();
 
-    lightboxImg.src = images[currentIndex].currentSrc || images[currentIndex].src;
-    lightboxImg.alt = images[currentIndex].alt || '';
-  }
+        lightboxImg.src = images[currentIndex].currentSrc || images[currentIndex].src;
+        lightboxImg.alt = images[currentIndex].alt || "";
+      }
 
-  function showPrev() {
-    currentIndex = (currentIndex - 1 + images.length) % images.length;
+      images.forEach((img, index) => {
+        img.style.cursor = "zoom-in";
+        img.addEventListener("click", () => openLightbox(index));
+      });
 
-    zoomed = false;
-    applyZoom();
+      lightboxImg.addEventListener("click", () => {
+        zoomed = !zoomed;
+        applyZoom();
+      });
 
-    lightboxImg.src = images[currentIndex].currentSrc || images[currentIndex].src;
-    lightboxImg.alt = images[currentIndex].alt || '';
-  }
+      lightboxImg.addEventListener("mousemove", (e) => {
+        if (!zoomed) return;
 
-  // Thumbnails open lightbox
-  images.forEach((img, index) => {
-    img.style.cursor = 'zoom-in';
-    img.addEventListener('click', () => openLightbox(index));
-  });
+        const rect = lightboxImg.getBoundingClientRect();
+        const x = ((e.clientX - rect.left) / rect.width) * 100;
+        const y = ((e.clientY - rect.top) / rect.height) * 100;
 
-  // Click image toggles zoom
-  lightboxImg.addEventListener('click', () => {
-    zoomed = !zoomed;
-    applyZoom();
-  });
+        lightboxImg.style.transformOrigin = `${x}% ${y}%`;
+      });
 
-// Mouse follow zoom (only when zoomed)
-lightboxImg.addEventListener('mousemove', (e) => {
-  if (!zoomed) return;
+      function setOriginFromPoint(clientX, clientY) {
+        const rect = lightboxImg.getBoundingClientRect();
+        const x = ((clientX - rect.left) / rect.width) * 100;
+        const y = ((clientY - rect.top) / rect.height) * 100;
 
-  const rect = lightboxImg.getBoundingClientRect();
-  const x = ((e.clientX - rect.left) / rect.width) * 100;
-  const y = ((e.clientY - rect.top) / rect.height) * 100;
+        lightboxImg.style.transformOrigin = `${x}% ${y}%`;
+      }
 
-  lightboxImg.style.transformOrigin = `${x}% ${y}%`;
-});
+      lightboxImg.addEventListener("touchstart", (e) => {
+        if (!zoomed) return;
+        const t = e.touches[0];
+        setOriginFromPoint(t.clientX, t.clientY);
+      }, { passive: true });
 
-// Touch follow zoom (mobile) — only when zoomed
-function setOriginFromPoint(clientX, clientY){
-  const rect = lightboxImg.getBoundingClientRect();
-  const x = ((clientX - rect.left) / rect.width) * 100;
-  const y = ((clientY - rect.top) / rect.height) * 100;
+      lightboxImg.addEventListener("touchmove", (e) => {
+        if (!zoomed) return;
+        const t = e.touches[0];
+        setOriginFromPoint(t.clientX, t.clientY);
+      }, { passive: true });
 
-  lightboxImg.style.transformOrigin = `${x}% ${y}%`;
-}
+      lightboxClose.addEventListener("click", closeLightbox);
 
-lightboxImg.addEventListener('touchstart', (e) => {
-  if (!zoomed) return;
-  const t = e.touches[0];
-  setOriginFromPoint(t.clientX, t.clientY);
-}, { passive: true });
+      lightbox.addEventListener("click", (e) => {
+        if (e.target === lightbox) closeLightbox();
+      });
 
-lightboxImg.addEventListener('touchmove', (e) => {
-  if (!zoomed) return;
-  const t = e.touches[0];
-  setOriginFromPoint(t.clientX, t.clientY);
-}, { passive: true });
+      window.addEventListener("keydown", (e) => {
+        if (!lightbox.classList.contains("is-open")) return;
 
-// Close button
-lightboxClose.addEventListener('click', closeLightbox);
+        if (e.key === "Escape") closeLightbox();
+        if (e.key === "ArrowRight") showNext();
+        if (e.key === "ArrowLeft") showPrev();
+      });
 
-  // Click backdrop closes
-  lightbox.addEventListener('click', (e) => {
-    if (e.target === lightbox) closeLightbox();
-  });
+      if (zoomBtn) {
+        zoomBtn.addEventListener("click", (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          zoomed = !zoomed;
+          applyZoom();
+        });
+      }
 
-  // Keyboard controls
-  window.addEventListener('keydown', (e) => {
-    if (!lightbox.classList.contains('is-open')) return;
-
-    if (e.key === 'Escape') closeLightbox();
-    if (e.key === 'ArrowRight') showNext();
-    if (e.key === 'ArrowLeft') showPrev();
-  });
-
-  // Zoom button toggles zoom (and must NOT trigger backdrop or image click)
-  if (zoomBtn) {
-    zoomBtn.addEventListener('click', (e) => {
-      e.preventDefault();
-      e.stopPropagation();
-      zoomed = !zoomed;
       applyZoom();
-    });
-  }
-
-  // Set initial button state
-  applyZoom();
-})();
-</script>
-
+    })();
+  </script>
 </body>
 </html>
