@@ -1,53 +1,59 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Retrieve Your Licence — Final Check Audio</title>
+
+  <link rel="stylesheet" href="/styles.css?v=3">
+  <link rel="icon" type="image/png" href="/assets/favicon.png">
+
   <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #f6f7fb;
-      color: #111827;
-    }
-    .wrap {
+    .retrieve-wrap {
       max-width: 560px;
       margin: 80px auto;
       padding: 24px;
     }
-    .card {
+
+    .retrieve-card {
       background: #fff;
       border: 1px solid #e5e7eb;
       border-radius: 18px;
       padding: 28px;
       box-shadow: 0 8px 30px rgba(0,0,0,0.04);
     }
-    h1 {
+
+    .retrieve-card h1 {
       margin: 0 0 14px;
       font-size: 30px;
       line-height: 1.15;
     }
-    p {
+
+    .retrieve-card p {
       font-size: 16px;
       line-height: 1.6;
       color: #374151;
     }
-    label {
+
+    .retrieve-card label {
       display: block;
       margin: 20px 0 8px;
       font-weight: 700;
       color: #111827;
     }
-    input {
+
+    .retrieve-card input {
       width: 100%;
       box-sizing: border-box;
       padding: 14px 16px;
       border: 1px solid #d1d5db;
       border-radius: 12px;
       font-size: 16px;
+      background: #fff;
+      color: #111827;
     }
-    button {
+
+    .retrieve-card button {
       margin-top: 16px;
       width: 100%;
       border: 0;
@@ -59,30 +65,49 @@
       background: #4f46e5;
       color: #fff;
     }
-    button:disabled {
+
+    .retrieve-card button:disabled {
       opacity: 0.7;
       cursor: not-allowed;
     }
-    .msg {
+
+    .retrieve-msg {
       margin-top: 16px;
       font-size: 15px;
       line-height: 1.5;
+      min-height: 22px;
     }
-    .small {
+
+    .retrieve-small {
       margin-top: 18px;
       font-size: 14px;
       color: #6b7280;
     }
-    a {
-      color: #4f46e5;
-      text-decoration: none;
-    }
   </style>
 </head>
+
 <body>
-  <div class="wrap">
-    <div class="card">
+  <div class="bg" aria-hidden="true">
+    <div class="bg-grid"></div>
+    <div class="bg-glow"></div>
+  </div>
+
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <a class="brand" href="/" aria-label="Final Check Audio home">
+        <img src="/assets/logo.png" alt="Final Check Audio logo" class="brand-mark">
+        <div class="brand-text">
+          <div class="brand-name">Final Check Audio</div>
+          <div class="brand-sub">MVP Final Check</div>
+        </div>
+      </a>
+    </div>
+  </header>
+
+  <main class="retrieve-wrap">
+    <div class="retrieve-card">
       <h1>Retrieve your licence</h1>
+
       <p>
         Enter the email address used at checkout and, if we find a licence for it,
         we’ll resend your licence key to that inbox.
@@ -90,29 +115,51 @@
 
       <form id="retrieveForm">
         <label for="email">Email address</label>
-        <input id="email" name="email" type="email" autocomplete="email" required />
+        <input
+          id="email"
+          name="email"
+          type="email"
+          autocomplete="email"
+          required
+        >
         <button id="submitBtn" type="submit">Resend my licence</button>
       </form>
 
-      <div id="msg" class="msg"></div>
+      <div id="msg" class="retrieve-msg"></div>
 
-      <p class="small">
+      <p class="retrieve-small">
         Still stuck? Contact
         <a href="mailto:support@finalcheckaudio.com">support@finalcheckaudio.com</a>
       </p>
     </div>
-  </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div>© <span id="y"></span> Final Check Audio Ltd</div>
+
+      <div class="footer-links">
+        <a href="mailto:support@finalcheckaudio.com">Support</a>
+        <a href="/retrieve">Retrieve Licence</a>
+        <a href="/privacy">Privacy</a>
+        <a href="/terms">Terms</a>
+      </div>
+    </div>
+  </footer>
 
   <script>
+    document.getElementById("y").textContent = new Date().getFullYear();
+
     const form = document.getElementById("retrieveForm");
     const msg = document.getElementById("msg");
     const submitBtn = document.getElementById("submitBtn");
 
     form.addEventListener("submit", async (e) => {
       e.preventDefault();
+
       msg.textContent = "";
       submitBtn.disabled = true;
-      submitBtn.textContent = "Sending...";
+      submitBtn.textContent = "Checking licence...";
 
       const email = document.getElementById("email").value.trim();
 
