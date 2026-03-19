@@ -6,7 +6,7 @@
 
   <title>Final Check Audio - Know When Your Track Is Ready</title>
 
-  <meta name="description" content="Standalone desktop app that checks LUFS, LRA, and True Peak and returns a clear PASS / CAUTION / FAIL verdict." />
+  <meta name="description" content="Import your premaster or master, get a clear result, and know what to fix before you send it out." />
 
   <!-- Preload hero screenshots -->
   <link rel="preload" as="image" href="/assets/PREMASTER%20PASS.png">
@@ -16,13 +16,72 @@
   <!-- Styles -->
   <link rel="stylesheet" href="/styles.css?v=3">
 
+  <!-- Small page-specific polish -->
+  <style>
+    .hero-copy-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .hero-audience {
+      margin: -2px 0 0;
+      font-size: 0.98rem;
+      line-height: 1.55;
+      color: rgba(255,255,255,0.72);
+    }
+
+    .hero-price {
+      margin: 4px 0 0;
+      font-size: 1rem;
+      line-height: 1.45;
+      color: rgba(255,255,255,0.9);
+      font-weight: 600;
+    }
+
+    .hero-micro {
+      margin-top: 10px;
+      font-size: 0.92rem;
+      line-height: 1.55;
+      color: rgba(255,255,255,0.62);
+    }
+
+    .hero-micro strong {
+      color: rgba(255,255,255,0.84);
+      font-weight: 600;
+    }
+
+    .section-intro {
+      max-width: 760px;
+      margin: 0 0 18px;
+      color: rgba(255,255,255,0.72);
+      line-height: 1.65;
+    }
+
+    .cta-row {
+      margin-top: 6px;
+    }
+
+    .fineprint {
+      margin-top: 14px;
+    }
+
+    @media (max-width: 860px) {
+      .hero-audience,
+      .hero-price,
+      .hero-micro {
+        font-size: 0.95rem;
+      }
+    }
+  </style>
+
   <!-- Favicon -->
   <link rel="icon" href="/assets/favicon.png" type="image/png">
   <link rel="shortcut icon" href="/assets/favicon.png">
 
   <!-- Open Graph -->
   <meta property="og:title" content="Final Check Audio - Know When Your Track Is Ready">
-  <meta property="og:description" content="Standalone desktop app that checks LUFS, LRA, and True Peak and returns a clear PASS / CAUTION / FAIL verdict.">
+  <meta property="og:description" content="Import your premaster or master, get a clear result, and know what to fix before you send it out.">
   <meta property="og:image" content="https://finalcheckaudio.com/assets/social-preview.png">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://finalcheckaudio.com">
@@ -78,13 +137,21 @@
         </span>
       </p>
 
-      <h1>Know When Your Track Is Ready.</h1>
+      <div class="hero-copy-stack">
+        <h1>Know When Your Track Is Ready.</h1>
 
-      <p class="lead">
-        Import a Premaster or Master and receive a clear PASS / CAUTION / FAIL verdict
-        based on Integrated LUFS, Loudness Range, and True Peak, along with practical
-        suggestions for what to adjust next.
-      </p>
+        <p class="lead">
+          Import your Premaster or Master and get a clear result before you send it out.
+        </p>
+
+        <p class="hero-audience">For producers, DJs, labels, and mastering engineers.</p>
+
+        <p class="hero-price">£99 Launch Price — Limited-time introductory offer</p>
+
+        <p class="hero-micro">
+          <strong>Upload your file. Get your result. Fix what matters.</strong>
+        </p>
+      </div>
 
       <div class="cta-row">
         <a class="btn primary disabled" href="#">Launching Soon</a>
@@ -133,6 +200,10 @@
   <!-- FEATURES -->
   <section id="features" class="container section">
     <h2>What it does</h2>
+    <p class="section-intro">
+      Final Check helps you stop second-guessing your releases by giving you a fast, decision-focused checkpoint before you send your audio out.
+    </p>
+
     <div class="cards">
       <article class="card">
         <div class="card-icon" aria-hidden="true">
@@ -142,8 +213,8 @@
             <path d="M12 12h0" stroke="currentColor" stroke-width="5" stroke-linecap="round"/>
           </svg>
         </div>
-        <h3>Instant verdict</h3>
-        <p>Clear PASS / CAUTION / FAIL so you stop guessing and stop over tweaking.</p>
+        <h3>Stop second-guessing your releases</h3>
+        <p>Clear PASS / CAUTION / FAIL results so you know whether to send it out, hold it back, or make changes first.</p>
       </article>
 
       <article class="card">
@@ -159,8 +230,8 @@
             <path d="M18 17v0" stroke="currentColor" stroke-width="6" stroke-linecap="round"/>
           </svg>
         </div>
-        <h3>Fix-first actions</h3>
-        <p>3 reasons + 3 fix-first moves so you know exactly what to adjust next.</p>
+        <h3>Know exactly what to fix next</h3>
+        <p>3 reasons and 3 fix-first actions focused on the moves that matter most before delivery.</p>
       </article>
 
       <article class="card">
@@ -170,8 +241,8 @@
             <path d="M8.5 12.2l2.2 2.2 4.8-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
         </div>
-        <h3>Built for real delivery</h3>
-        <p>Checks the metrics that actually trip releases: loudness, dynamics, true peak.</p>
+        <h3>Check what actually affects release</h3>
+        <p>Loudness, dynamics, and true peak — the checks that most often trip up real-world delivery.</p>
       </article>
     </div>
   </section>
@@ -184,13 +255,12 @@
           <div class="report-copy">
             <h2>PDF report (optional export)</h2>
             <p class="section-sub">
-              Generate a clean sign-off style PDF to share with clients, labels, or collaborators.
-              Keeps the verdict, key metrics, and fix-first actions in one place.
+              Share your result with confidence. Export a clean PDF with your PASS / CAUTION / FAIL outcome, key release metrics, and fix-first actions — ready for clients, labels, or collaborators.
             </p>
 
             <div class="report-points">
-              <div class="point">Verdict summary (PASS / CAUTION / FAIL)</div>
-              <div class="point">Integrated LUFS, LRA, True Peak</div>
+              <div class="point">Clear result summary (PASS / CAUTION / FAIL)</div>
+              <div class="point">Key release metrics: LUFS, LRA, True Peak</div>
               <div class="point">3 reasons + 3 fix-first actions</div>
             </div>
           </div>
@@ -220,7 +290,7 @@
   <!-- SCREENSHOTS -->
   <section class="container section screenshots">
     <h2>Mix Check verdicts</h2>
-    <p class="section-sub">Premaster analysis showing PASS / CAUTION / FAIL results.</p>
+    <p class="section-sub">See exactly how your premaster will be judged before you send it out.</p>
 
     <div class="shot-grid">
       <div class="shot-card">
@@ -240,7 +310,7 @@
     </div>
 
     <h2 style="margin-top:60px;">Master Check verdicts</h2>
-    <p class="section-sub">Release level checks before distribution.</p>
+    <p class="section-sub">See how your master is judged before release or final delivery.</p>
 
     <div class="shot-grid">
       <div class="shot-card">
@@ -264,11 +334,10 @@
   <section class="container section split standards">
     <div>
       <div class="section-kicker">Technical</div>
-      <h2>Measurement standards</h2>
+      <h2>Built on real mastering standards</h2>
 
       <p class="section-sub standards-sub">
-        MVP Final Check analyses audio using established loudness measurement
-        standards used across broadcast and mastering workflows.
+        Final Check uses established loudness and true peak measurement standards trusted across professional delivery workflows.
       </p>
     </div>
 
@@ -295,15 +364,13 @@
   <!-- EDUCATION -->
   <section id="edu" class="container section split">
     <div>
-      <h2>Education & student pricing</h2>
+      <h2>Student & education pricing</h2>
       <p class="lead">
-        If you're studying Audio Production, Sound Engineering, or a related course,
-        education pricing is available for students and educators.
+        Discounted access is available for students and educators studying Audio Production, Sound Engineering, or related courses.
       </p>
 
       <p class="lead">
-        We support universities, colleges, and independent learning programs.
-        Get in touch and we'll help you access the student rate.
+        We support universities, colleges, and independent learning programs. Get in touch and we’ll help you access the student rate.
       </p>
       <p class="muted"></p>
     </div>
@@ -312,8 +379,7 @@
       <div class="edu-title">Are you a student?</div>
 
       <div class="edu-text">
-        We offer discounted access for students and educators.
-        Send us a quick message and we'll help you get set up.
+        We offer discounted access for students and educators. Send us a quick message and we’ll help you get set up.
       </div>
 
       <a class="btn small ghost" href="mailto:support@finalcheckaudio.com">Get in touch</a>
@@ -327,32 +393,32 @@
     <div class="faq">
       <details>
         <summary>Is this a plugin?</summary>
-        <p>No. It’s a standalone desktop app (not VST/AU/AAX). Export your audio from your DAW and run the check inside the app.</p>
+        <p>No. It’s a standalone desktop app, not a VST, AU, or AAX plugin. Export your audio from your DAW and run the check inside the app.</p>
       </details>
 
       <details>
-        <summary>What does the app analyse?</summary>
-        <p>MVP Final Check measures Integrated LUFS, Loudness Range (LRA), and True Peak to determine whether your track is ready to be sent to a sound engineer or for release.</p>
+        <summary>What does this actually tell me?</summary>
+        <p>It tells you whether your premaster or master is ready to send out, based on Integrated LUFS, Loudness Range, and True Peak, and shows what to fix next if it isn’t.</p>
       </details>
 
       <details>
-        <summary>What does PASS / CAUTION / FAIL mean?</summary>
-        <p>The app compares your track against release-ready thresholds. PASS means it's ready to deliver, CAUTION highlights minor issues, and FAIL means it likely needs correction before sending to a sound engineer or before release.</p>
+        <summary>What do PASS / CAUTION / FAIL actually mean?</summary>
+        <p>PASS means your file is in a healthy range for the selected check. CAUTION means there are issues worth reviewing before delivery. FAIL means it likely needs changes before you send it to DJs, labels, or a mastering engineer.</p>
       </details>
 
       <details>
-        <summary>Is this a replacement for mastering?</summary>
-        <p>No. It’s a verification tool, not a mastering tool. It helps Audio Producers, Sound Engineers, Record Label owners, Managers and Students quickly confirm whether a mix or master is technically ready.</p>
+        <summary>Is this a replacement for a mastering engineer?</summary>
+        <p>No. Final Check is a decision tool, not a mastering service. It helps you verify whether a premaster or master is ready before sending it out.</p>
       </details>
 
       <details>
         <summary>Does it require an internet connection?</summary>
-        <p>No. The app runs locally on your computer. Internet is only required once during license activation.</p>
+        <p>No. The app runs locally on your computer. Internet is only required once during licence activation.</p>
       </details>
 
       <details>
         <summary>How do I receive access after purchase?</summary>
-        <p>After purchase you'll receive your license key and download instructions via email. Enter the key in the app to activate your copy.</p>
+        <p>After purchase, you’ll receive your licence key and download instructions by email. Enter the key in the app to activate your copy.</p>
       </details>
 
       <details>
@@ -362,17 +428,17 @@
 
       <details>
         <summary>Can I install it on multiple machines?</summary>
-        <p>Each license allows activation on a limited number of devices. If you change computers you can contact support to reset activations.</p>
+        <p>Each licence allows activation on a limited number of devices. If you change computers, contact support and we’ll help with activation management.</p>
       </details>
 
       <details>
-        <summary>Who is this tool for?</summary>
-        <p>MVP Final Check is designed for Audio Producers, Mix Engineers, Mastering Engineers, Managers and Record Label teams who want a professional and fast verification step before release, and for Audio Producers who want a confidence check before sending their track out.</p>
+        <summary>Who is this for?</summary>
+        <p>Final Check is built for producers, DJs, mastering engineers, labels, managers, and students who want a fast confidence check before release or delivery.</p>
       </details>
 
       <details>
         <summary>Do you offer student pricing?</summary>
-        <p>Yes. We offer education pricing for students and educators studying Audio Production or Sound Engineering. Get in touch and we’ll help you access the student rate.</p>
+        <p>Yes. We offer education pricing for students and educators studying Audio Production, Sound Engineering, or related subjects. Get in touch and we’ll help you access the student rate.</p>
       </details>
     </div>
 
