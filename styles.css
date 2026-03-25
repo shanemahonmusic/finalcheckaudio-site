@@ -448,46 +448,6 @@ html{
 .footer-links{display:flex;gap:14px}
 .footer-links a:hover{color:var(--text)}
 
-/* Back to top */
-.back-to-top{
-  position:fixed;
-  right:22px;
-  bottom:22px;
-  width:46px;
-  height:46px;
-  border:1px solid rgba(255,255,255,0.14);
-  border-radius:999px;
-  background:rgba(12,12,18,0.84);
-  color:rgba(255,255,255,0.9);
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  padding:0;
-  cursor:pointer;
-  box-shadow:0 10px 30px rgba(0,0,0,0.28);
-  backdrop-filter:blur(10px);
-  -webkit-backdrop-filter:blur(10px);
-  transition:
-    transform 0.22s ease,
-    border-color 0.22s ease,
-    background 0.22s ease;
-  z-index:1200;
-}
-.back-to-top svg{
-  width:18px;
-  height:18px;
-  display:block;
-}
-.back-to-top:hover{
-  background:rgba(18,18,28,0.94);
-  border-color:rgba(255,255,255,0.22);
-  transform:translateY(-1px);
-}
-.back-to-top:focus-visible{
-  outline:2px solid rgba(255,255,255,0.42);
-  outline-offset:3px;
-}
-
 /* =========================
    LEGAL PAGES
 ========================= */
@@ -561,20 +521,6 @@ html{
   .cards{grid-template-columns:1fr}
   .shot-grid{grid-template-columns:1fr}
   .split{grid-template-columns:1fr}
-}
-
-@media (max-width: 640px){
-  .back-to-top{
-    right:16px;
-    bottom:16px;
-    width:42px;
-    height:42px;
-  }
-
-  .back-to-top svg{
-    width:16px;
-    height:16px;
-  }
 }
 
 /* =========================
