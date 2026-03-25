@@ -229,7 +229,7 @@
         <p>3 reasons and 3 fix-first actions focused on the moves that matter most before delivery.</p>
       </article>
 
-      <article class="card">
+           <article class="card">
         <div class="card-icon" aria-hidden="true">
           <svg viewBox="0 0 24 24" fill="none">
             <path d="M12 3l7 3v6c0 5-3 8-7 9-4-1-7-4-7-9V6l7-3Z" stroke="currentColor" stroke-width="1.6" opacity=".9"/>
@@ -237,7 +237,7 @@
           </svg>
         </div>
         <h3>Built on established audio standards</h3>
-<p>Integrated LUFS, loudness range, true peak and additional signal checks are measured using widely adopted audio standards.
+        <p>Integrated LUFS, loudness range, true peak and additional signal checks are measured using widely adopted audio standards.</p>
       </article>
     </div>
   </section>
@@ -506,6 +506,8 @@
     const btn = document.getElementById("backToTop");
     if (!btn) return;
 
+    btn.style.display = "inline-flex";
+
     btn.addEventListener("click", () => {
       window.scrollTo({
         top: 0,
@@ -513,7 +515,7 @@
       });
     });
   })();
-
+  
   /* LIGHTBOX */
   (function () {
     const lightbox = document.getElementById("lightbox");
