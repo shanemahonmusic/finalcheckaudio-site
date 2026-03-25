@@ -471,28 +471,25 @@
   </div>
 </section>
 
-  <!-- LIGHTBOX -->
-  <div id="lightbox" class="lightbox" aria-hidden="true">
-    <button class="lightbox__close" id="lightboxClose" aria-label="Close" type="button">×</button>
-    <button class="lightbox__zoom" id="lightboxZoom" aria-label="Zoom" type="button">🔍</button>
-    <img id="lightboxImg" class="lightbox__img" alt="">
-  </div>
+<!-- LIGHTBOX -->
+<div id="lightbox" class="lightbox" aria-hidden="true">
+  <button class="lightbox__close" id="lightboxClose" aria-label="Close" type="button">×</button>
+  <button class="lightbox__zoom" id="lightboxZoom" aria-label="Zoom" type="button">🔍</button>
+  <img id="lightboxImg" class="lightbox__img" alt="">
+</div>
 
-  <footer class="footer">
-    <div class="container footer-inner">
-      <div>© <span id="y"></span> Final Check Audio Ltd</div>
+<footer class="footer">
+  <div class="container footer-inner">
+    <div>© <span id="y"></span> Final Check Audio Ltd</div>
 
-      <div class="footer-links">
-        <a href="mailto:support@finalcheckaudio.com">Support</a>
-        <a href="/retrieve">Retrieve Licence</a>
-        <a href="/privacy">Privacy</a>
-        <a href="/terms">Terms</a>
-      </div>
+    <div class="footer-links">
+      <a href="mailto:support@finalcheckaudio.com">Support</a>
+      <a href="/retrieve">Retrieve Licence</a>
+      <a href="/privacy">Privacy</a>
+      <a href="/terms">Terms</a>
     </div>
-  </footer>
-
-  <script>
-    document.getElementById("y").textContent = new Date().getFullYear();
+  </div>
+</footer>
 
 <button id="backToTop" class="back-to-top" type="button" aria-label="Back to top" title="Back to top">
   <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
@@ -509,23 +506,12 @@
     const btn = document.getElementById("backToTop");
     if (!btn) return;
 
-    function toggleBackToTop() {
-      if (window.scrollY > 500) {
-        btn.classList.add("is-visible");
-      } else {
-        btn.classList.remove("is-visible");
-      }
-    }
-
     btn.addEventListener("click", () => {
       window.scrollTo({
         top: 0,
         behavior: "smooth"
       });
     });
-
-    window.addEventListener("scroll", toggleBackToTop, { passive: true });
-    toggleBackToTop();
   })();
 
   /* LIGHTBOX */
