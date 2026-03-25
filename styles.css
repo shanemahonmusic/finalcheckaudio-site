@@ -63,6 +63,10 @@ a{color:inherit;text-decoration:none}
   filter: blur(10px);
 }
 
+html{
+  scroll-behavior:smooth;
+}
+
 /* Topbar */
 .topbar{
   position:sticky;
