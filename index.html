@@ -494,144 +494,172 @@
   <script>
     document.getElementById("y").textContent = new Date().getFullYear();
 
-    /* LIGHTBOX */
-    (function () {
-      const lightbox = document.getElementById("lightbox");
-      const lightboxImg = document.getElementById("lightboxImg");
-      const lightboxClose = document.getElementById("lightboxClose");
-      const zoomBtn = document.getElementById("lightboxZoom");
-      const images = Array.from(document.querySelectorAll("[data-lightbox]"));
-
-      let currentIndex = 0;
-      let zoomed = false;
-
-      if (!lightbox || !lightboxImg || !lightboxClose || images.length === 0) return;
-
-      function applyZoom() {
-        if (zoomed) {
-          lightboxImg.style.transform = "scale(2)";
-          lightboxImg.style.cursor = "zoom-out";
-          if (zoomBtn) zoomBtn.textContent = "−";
-        } else {
-          lightboxImg.style.transform = "scale(1)";
-          lightboxImg.style.cursor = "zoom-in";
-          if (zoomBtn) zoomBtn.textContent = "+";
-          lightboxImg.style.transformOrigin = "50% 50%";
-        }
-      }
-
-      function openLightbox(index) {
-        currentIndex = index;
-        zoomed = false;
-        applyZoom();
-
-        lightboxImg.src = images[index].currentSrc || images[index].src;
-        lightboxImg.alt = images[index].alt || "";
-
-        lightbox.classList.add("is-open");
-        lightbox.setAttribute("aria-hidden", "false");
-        document.body.style.overflow = "hidden";
-      }
-
-      function closeLightbox() {
-        lightbox.classList.remove("is-open");
-        lightbox.setAttribute("aria-hidden", "true");
-        document.body.style.overflow = "";
-        lightboxImg.removeAttribute("src");
-
-        zoomed = false;
-        applyZoom();
-      }
-
-      function showNext() {
-        currentIndex = (currentIndex + 1) % images.length;
-        zoomed = false;
-        applyZoom();
-
-        lightboxImg.src = images[currentIndex].currentSrc || images[currentIndex].src;
-        lightboxImg.alt = images[currentIndex].alt || "";
-      }
-
-      function showPrev() {
-        currentIndex = (currentIndex - 1 + images.length) % images.length;
-        zoomed = false;
-        applyZoom();
-
-        lightboxImg.src = images[currentIndex].currentSrc || images[currentIndex].src;
-        lightboxImg.alt = images[currentIndex].alt || "";
-      }
-
-      images.forEach((img, index) => {
-        img.style.cursor = "zoom-in";
-        img.addEventListener("click", () => openLightbox(index));
-      });
-
-      lightboxImg.addEventListener("click", () => {
-        zoomed = !zoomed;
-        applyZoom();
-      });
-
-      lightboxImg.addEventListener("mousemove", (e) => {
-        if (!zoomed) return;
-
-        const rect = lightboxImg.getBoundingClientRect();
-        const x = ((e.clientX - rect.left) / rect.width) * 100;
-        const y = ((e.clientY - rect.top) / rect.height) * 100;
-
-        lightboxImg.style.transformOrigin = `${x}% ${y}%`;
-      });
-
-      function setOriginFromPoint(clientX, clientY) {
-        const rect = lightboxImg.getBoundingClientRect();
-        const x = ((clientX - rect.left) / rect.width) * 100;
-        const y = ((clientY - rect.top) / rect.height) * 100;
-
-        lightboxImg.style.transformOrigin = `${x}% ${y}%`;
-      }
-
-      lightboxImg.addEventListener("touchstart", (e) => {
-        if (!zoomed) return;
-        const t = e.touches[0];
-        setOriginFromPoint(t.clientX, t.clientY);
-      }, { passive: true });
-
-      lightboxImg.addEventListener("touchmove", (e) => {
-        if (!zoomed) return;
-        const t = e.touches[0];
-        setOriginFromPoint(t.clientX, t.clientY);
-      }, { passive: true });
-
-      lightboxClose.addEventListener("click", closeLightbox);
-
-      lightbox.addEventListener("click", (e) => {
-        if (e.target === lightbox) closeLightbox();
-      });
-
-      window.addEventListener("keydown", (e) => {
-        if (!lightbox.classList.contains("is-open")) return;
-
-        if (e.key === "Escape") closeLightbox();
-        if (e.key === "ArrowRight") showNext();
-        if (e.key === "ArrowLeft") showPrev();
-      });
-
-      if (zoomBtn) {
-        zoomBtn.addEventListener("click", (e) => {
-          e.preventDefault();
-          e.stopPropagation();
-          zoomed = !zoomed;
-          applyZoom();
-        });
-      }
-
-      applyZoom();
-    })();
-  </script>
-  <button id="backToTop" class="back-to-top" type="button" aria-label="Back to top" title="Back to top">
+<button id="backToTop" class="back-to-top" type="button" aria-label="Back to top" title="Back to top">
   <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
     <path d="M12 19V7" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/>
     <path d="M7 12l5-5 5 5" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/>
   </svg>
 </button>
+
+<script>
+  document.getElementById("y").textContent = new Date().getFullYear();
+
+  /* BACK TO TOP */
+  (function () {
+    const btn = document.getElementById("backToTop");
+    if (!btn) return;
+
+    function toggleBackToTop() {
+      if (window.scrollY > 500) {
+        btn.classList.add("is-visible");
+      } else {
+        btn.classList.remove("is-visible");
+      }
+    }
+
+    btn.addEventListener("click", () => {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+    });
+
+    window.addEventListener("scroll", toggleBackToTop, { passive: true });
+    toggleBackToTop();
+  })();
+
+  /* LIGHTBOX */
+  (function () {
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImg = document.getElementById("lightboxImg");
+    const lightboxClose = document.getElementById("lightboxClose");
+    const zoomBtn = document.getElementById("lightboxZoom");
+    const images = Array.from(document.querySelectorAll("[data-lightbox]"));
+
+    let currentIndex = 0;
+    let zoomed = false;
+
+    if (!lightbox || !lightboxImg || !lightboxClose || images.length === 0) return;
+
+    function applyZoom() {
+      if (zoomed) {
+        lightboxImg.style.transform = "scale(2)";
+        lightboxImg.style.cursor = "zoom-out";
+        if (zoomBtn) zoomBtn.textContent = "−";
+      } else {
+        lightboxImg.style.transform = "scale(1)";
+        lightboxImg.style.cursor = "zoom-in";
+        if (zoomBtn) zoomBtn.textContent = "+";
+        lightboxImg.style.transformOrigin = "50% 50%";
+      }
+    }
+
+    function openLightbox(index) {
+      currentIndex = index;
+      zoomed = false;
+      applyZoom();
+
+      lightboxImg.src = images[index].currentSrc || images[index].src;
+      lightboxImg.alt = images[index].alt || "";
+
+      lightbox.classList.add("is-open");
+      lightbox.setAttribute("aria-hidden", "false");
+      document.body.style.overflow = "hidden";
+    }
+
+    function closeLightbox() {
+      lightbox.classList.remove("is-open");
+      lightbox.setAttribute("aria-hidden", "true");
+      document.body.style.overflow = "";
+      lightboxImg.removeAttribute("src");
+
+      zoomed = false;
+      applyZoom();
+    }
+
+    function showNext() {
+      currentIndex = (currentIndex + 1) % images.length;
+      zoomed = false;
+      applyZoom();
+
+      lightboxImg.src = images[currentIndex].currentSrc || images[currentIndex].src;
+      lightboxImg.alt = images[currentIndex].alt || "";
+    }
+
+    function showPrev() {
+      currentIndex = (currentIndex - 1 + images.length) % images.length;
+      zoomed = false;
+      applyZoom();
+
+      lightboxImg.src = images[currentIndex].currentSrc || images[currentIndex].src;
+      lightboxImg.alt = images[currentIndex].alt || "";
+    }
+
+    images.forEach((img, index) => {
+      img.style.cursor = "zoom-in";
+      img.addEventListener("click", () => openLightbox(index));
+    });
+
+    lightboxImg.addEventListener("click", () => {
+      zoomed = !zoomed;
+      applyZoom();
+    });
+
+    lightboxImg.addEventListener("mousemove", (e) => {
+      if (!zoomed) return;
+
+      const rect = lightboxImg.getBoundingClientRect();
+      const x = ((e.clientX - rect.left) / rect.width) * 100;
+      const y = ((e.clientY - rect.top) / rect.height) * 100;
+
+      lightboxImg.style.transformOrigin = `${x}% ${y}%`;
+    });
+
+    function setOriginFromPoint(clientX, clientY) {
+      const rect = lightboxImg.getBoundingClientRect();
+      const x = ((clientX - rect.left) / rect.width) * 100;
+      const y = ((clientY - rect.top) / rect.height) * 100;
+
+      lightboxImg.style.transformOrigin = `${x}% ${y}%`;
+    }
+
+    lightboxImg.addEventListener("touchstart", (e) => {
+      if (!zoomed) return;
+      const t = e.touches[0];
+      setOriginFromPoint(t.clientX, t.clientY);
+    }, { passive: true });
+
+    lightboxImg.addEventListener("touchmove", (e) => {
+      if (!zoomed) return;
+      const t = e.touches[0];
+      setOriginFromPoint(t.clientX, t.clientY);
+    }, { passive: true });
+
+    lightboxClose.addEventListener("click", closeLightbox);
+
+    lightbox.addEventListener("click", (e) => {
+      if (e.target === lightbox) closeLightbox();
+    });
+
+    window.addEventListener("keydown", (e) => {
+      if (!lightbox.classList.contains("is-open")) return;
+
+      if (e.key === "Escape") closeLightbox();
+      if (e.key === "ArrowRight") showNext();
+      if (e.key === "ArrowLeft") showPrev();
+    });
+
+    if (zoomBtn) {
+      zoomBtn.addEventListener("click", (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        zoomed = !zoomed;
+        applyZoom();
+      });
+    }
+
+    applyZoom();
+  })();
+</script>
 </body>
 </html>
