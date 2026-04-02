@@ -152,6 +152,27 @@ html{
 }
 .cta-row{display:flex;gap:14px;align-items:center;margin-top:20px;flex-wrap:wrap}
 
+.hero-cta-stack{
+  display:flex;
+  align-items:flex-start;
+  gap:12px;
+  flex-wrap:wrap;
+}
+
+.hero-buy-wrap{
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+  gap:8px;
+}
+
+.hero-buy-note{
+  padding-left:2px;
+  font-size:0.9rem;
+  line-height:1.4;
+  color:rgba(255,255,255,0.68);
+}
+
 .btn{
   display:inline-flex;align-items:center;justify-content:center;
   padding:12px 16px;border-radius:14px;border:1px solid var(--stroke);
