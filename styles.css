@@ -152,16 +152,15 @@ html{
 }
 .cta-row{display:flex;gap:14px;align-items:center;margin-top:20px;flex-wrap:wrap}
 
-.hero-cta-single{
+.hero-cta-inline{
   display:flex;
-  flex-direction:column;
-  align-items:flex-start;
-  gap:10px;
+  align-items:center;
+  gap:14px;
   margin-top:24px;
+  flex-wrap:wrap;
 }
 
 .hero-buy-btn{
-  min-width:190px;
   min-height:52px;
   padding:14px 22px;
   font-size:16px;
@@ -172,10 +171,11 @@ html{
     0 6px 18px rgba(0,0,0,0.28);
 }
 
-.hero-buy-note{
+.hero-buy-note-inline{
   font-size:0.95rem;
   line-height:1.4;
-  color:rgba(255,255,255,0.72);
+  color:rgba(255,255,255,0.65);
+  white-space:nowrap;
 }
 
 .btn{
