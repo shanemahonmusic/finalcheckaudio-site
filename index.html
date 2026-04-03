@@ -73,30 +73,30 @@
         font-size: 0.95rem;
       }
     }
-    .trial-cta {
-  margin-top: 60px;
-  padding: 24px 26px;
+    
+.trial-box {
+  padding: 22px 24px;
   border: 1px solid rgba(255,255,255,0.1);
   border-radius: 20px;
-  background: linear-gradient(180deg, rgba(255,255,255,0.035), rgba(255,255,255,0.02));
+  background: linear-gradient(180deg, rgba(130, 55, 255, 0.16), rgba(255,255,255,0.03));
   box-shadow: 0 10px 30px rgba(0,0,0,0.16);
+  max-width: 380px;
 }
 
-.trial-cta-title {
+.trial-box-title {
   margin: 0 0 8px;
-  font-size: 1.05rem;
+  font-size: 1.02rem;
   font-weight: 600;
   color: rgba(255,255,255,0.96);
 }
 
-.trial-cta-text {
+.trial-box-text {
   margin: 0;
-  max-width: 680px;
   line-height: 1.65;
-  color: rgba(255,255,255,0.72);
+  color: rgba(255,255,255,0.74);
 }
 
-.trial-cta-actions {
+.trial-box-actions {
   margin-top: 16px;
 }
   </style>
@@ -407,13 +407,22 @@
     </div>
   </section>
 
-  <section class="container section">
-  <div class="trial-cta">
-    <p class="trial-cta-title">Want to try it first?</p>
-    <p class="trial-cta-text">
-      If you're unsure, get in touch and we can arrange a limited trial.
+<section class="container section split">
+  <div>
+    <h2>Want to try it first?</h2>
+    <p class="lead">
+      If you're unsure, we can arrange a limited trial so you can test the app properly before purchasing.
     </p>
-    <div class="trial-cta-actions">
+  </div>
+
+  <div class="trial-box">
+    <div class="trial-box-title">Try it first</div>
+
+    <div class="trial-box-text">
+      Includes <strong>3 full checks</strong> so you can see exactly how your track reads before committing.
+    </div>
+
+    <div class="trial-box-actions">
       <a class="btn small ghost" href="mailto:support@finalcheckaudio.com?subject=Trial%20request%20-%20MVP%20Final%20Check">
         Get in touch
       </a>
