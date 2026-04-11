@@ -162,9 +162,11 @@ html{
 
 .hero-buy-btn{
   min-height:52px;
-  padding:14px 22px;
+  min-width:128px;
+  padding:14px 32px;
   font-size:16px;
   font-weight:700;
+  text-align:center;
   border-radius:16px;
   box-shadow:
     0 18px 50px rgba(138,43,226,0.32),
@@ -195,8 +197,13 @@ html{
 .btn.small{padding:10px 14px;border-radius:12px;font-size:14px}
 
 .fineprint{
-  display:flex;gap:14px;margin-top:14px;flex-wrap:wrap;
-  color:rgba(233,236,244,0.65);font-size:13px;
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+  gap:8px;
+  margin-top:14px;
+  color:rgba(233,236,244,0.65);
+  font-size:13px;
 }
 .fineprint span{
   padding:6px 10px;border:1px solid rgba(255,255,255,0.10);
@@ -260,7 +267,7 @@ html{
 }
 
 .video-wrap {
-  max-width: 900px;   /* controls size */
+  max-width: 900px;
   margin: 30px auto 0;
 }
 
@@ -287,7 +294,7 @@ html{
 
 .report-copy{
   max-width:520px;
-  margin-top: var(--report-left-offset); /* stable movement */
+  margin-top: var(--report-left-offset);
 }
 
 .section-sub{
@@ -313,10 +320,10 @@ html{
   position:relative;
   width:100%;
   max-width:560px;
-  min-height:560px;         /* reserves space so it can't collide */
+  min-height:560px;
   justify-self:end;
   align-self:start;
-  margin-top: var(--report-right-offset); /* stable movement */
+  margin-top: var(--report-right-offset);
 }
 
 /* PDFs */
@@ -452,6 +459,7 @@ html{
   opacity:0.8;
   margin-bottom:10px;
 }
+
 /* Education split */
 .split{
   display:grid;
@@ -564,14 +572,14 @@ html{
   }
 
   .report-copy{
-    margin-top: 0;          /* keep natural flow on mobile */
+    margin-top: 0;
   }
 
   .report-shots{
     justify-self:start;
     max-width:520px;
     min-height:560px;
-    margin-top: 0;          /* keep natural flow on mobile */
+    margin-top: 0;
   }
 
   .pdfShot{width:420px}
@@ -661,6 +669,7 @@ html{
 .lightbox__img{
   transition: transform .25s ease;
 }
+
 /* MOBILE: fix hero screenshot spacing */
 @media (max-width: 768px) {
 
