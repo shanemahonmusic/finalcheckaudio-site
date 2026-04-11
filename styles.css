@@ -210,6 +210,13 @@ html{
   border-radius:999px;background:rgba(0,0,0,0.15)
 }
 
+.hero-subtitle {
+  margin-top: 10px;
+  font-size: 18px;
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: 400;
+}
+
 /* HERO SHOTS */
 .hero-right{display:flex;justify-content:center;align-items:center}
 .heroShots{
