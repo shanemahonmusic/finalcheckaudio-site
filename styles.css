@@ -210,12 +210,14 @@ html{
   border-radius:999px;background:rgba(0,0,0,0.15)
 }
 
-.hero-subtitle {
-  margin: -6px 0 6px;
-  font-size: 1.08rem;
-  line-height: 1.45;
-  color: rgba(255,255,255,0.72);
-  font-weight: 500;
+.hero-kicker {
+  margin: 0 0 14px;
+  font-size: 0.82rem;
+  line-height: 1.2;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.58);
+  font-weight: 600;
 }
 
 /* HERO SHOTS */
