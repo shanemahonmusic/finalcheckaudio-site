@@ -247,23 +247,21 @@ html{
 
 .video-section {
   margin-top: 60px;
+  text-align: center;
 }
 
 .video-section h2 {
-  font-size: 28px;
-  margin-bottom: 10px;
+  font-size: 30px;
+  margin: 0 0 10px;
+  text-align: center;
 }
 
 .video-section p {
   opacity: 0.8;
-  margin-bottom: 20px;
-}
-
-.video-section video {
-  display: block;
-  width: 100%;
-  border-radius: 16px;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+  margin: 0 auto 20px;
+  text-align: center;
+  max-width: 760px;
+  line-height: 1.6;
 }
 
 .video-wrap {
