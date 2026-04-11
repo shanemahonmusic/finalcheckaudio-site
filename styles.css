@@ -238,6 +238,27 @@ html{
   z-index:3;
 }
 
+.video-section {
+  margin-top: 60px;
+}
+
+.video-section h2 {
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+.video-section p {
+  opacity: 0.8;
+  margin-bottom: 20px;
+}
+
+.video-section video {
+  display: block;
+  width: 100%;
+  border-radius: 16px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+}
+
 /* =========================
    PDF REPORT PREVIEW (STABLE)
 ========================= */
