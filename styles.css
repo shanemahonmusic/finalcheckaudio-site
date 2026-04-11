@@ -210,16 +210,6 @@ html{
   border-radius:999px;background:rgba(0,0,0,0.15)
 }
 
-.hero-kicker {
-  margin: 0 0 14px;
-  font-size: 0.82rem;
-  line-height: 1.2;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: rgba(255,255,255,0.58);
-  font-weight: 600;
-}
-
 /* HERO SHOTS */
 .hero-right{display:flex;justify-content:center;align-items:center}
 .heroShots{
