@@ -259,6 +259,17 @@ html{
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
 }
 
+.video-wrap {
+  max-width: 900px;   /* controls size */
+  margin: 30px auto 0;
+}
+
+.demo-video {
+  width: 100%;
+  border-radius: 16px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+}
+
 /* =========================
    PDF REPORT PREVIEW (STABLE)
 ========================= */
