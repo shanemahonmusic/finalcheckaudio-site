@@ -211,10 +211,11 @@ html{
 }
 
 .hero-subtitle {
-  margin-top: 10px;
-  font-size: 18px;
-  color: rgba(255, 255, 255, 0.7);
-  font-weight: 400;
+  margin: -6px 0 6px;
+  font-size: 1.08rem;
+  line-height: 1.45;
+  color: rgba(255,255,255,0.72);
+  font-weight: 500;
 }
 
 /* HERO SHOTS */
