@@ -620,34 +620,52 @@
     const lightbox = document.getElementById("lightbox");
     const lightboxImg = document.getElementById("lightboxImg");
     const lightboxClose = document.getElementById("lightboxClose");
+    const lightboxPrev = document.getElementById("lightboxPrev");
+    const lightboxNext = document.getElementById("lightboxNext");
     const zoomBtn = document.getElementById("lightboxZoom");
-    const images = Array.from(document.querySelectorAll("[data-lightbox]"));
+    const allImages = Array.from(document.querySelectorAll("[data-lightbox]"));
 
+    let activeImages = [];
     let currentIndex = 0;
     let zoomed = false;
 
-    if (!lightbox || !lightboxImg || !lightboxClose || images.length === 0) return;
+    if (
+      !lightbox ||
+      !lightboxImg ||
+      !lightboxClose ||
+      !lightboxPrev ||
+      !lightboxNext ||
+      !zoomBtn ||
+      allImages.length === 0
+    ) return;
 
     function applyZoom() {
       if (zoomed) {
         lightboxImg.style.transform = "scale(2)";
         lightboxImg.style.cursor = "zoom-out";
-        if (zoomBtn) zoomBtn.textContent = "−";
+        zoomBtn.textContent = "−";
       } else {
         lightboxImg.style.transform = "scale(1)";
         lightboxImg.style.cursor = "zoom-in";
-        if (zoomBtn) zoomBtn.textContent = "+";
+        zoomBtn.textContent = "+";
         lightboxImg.style.transformOrigin = "50% 50%";
       }
     }
 
-    function openLightbox(index) {
+    function showImage(index) {
       currentIndex = index;
       zoomed = false;
       applyZoom();
 
-      lightboxImg.src = images[index].currentSrc || images[index].src;
-      lightboxImg.alt = images[index].alt || "";
+      lightboxImg.src = activeImages[index].currentSrc || activeImages[index].src;
+      lightboxImg.alt = activeImages[index].alt || "";
+    }
+
+    function openLightbox(groupName, indexInGroup) {
+      activeImages = Array.from(document.querySelectorAll(`[data-lightbox="${groupName}"]`));
+      if (!activeImages.length) return;
+
+      showImage(indexInGroup);
 
       lightbox.classList.add("is-open");
       lightbox.setAttribute("aria-hidden", "false");
@@ -665,26 +683,26 @@
     }
 
     function showNext() {
-      currentIndex = (currentIndex + 1) % images.length;
-      zoomed = false;
-      applyZoom();
-
-      lightboxImg.src = images[currentIndex].currentSrc || images[currentIndex].src;
-      lightboxImg.alt = images[currentIndex].alt || "";
+      if (!activeImages.length) return;
+      const nextIndex = (currentIndex + 1) % activeImages.length;
+      showImage(nextIndex);
     }
 
     function showPrev() {
-      currentIndex = (currentIndex - 1 + images.length) % images.length;
-      zoomed = false;
-      applyZoom();
-
-      lightboxImg.src = images[currentIndex].currentSrc || images[currentIndex].src;
-      lightboxImg.alt = images[currentIndex].alt || "";
+      if (!activeImages.length) return;
+      const prevIndex = (currentIndex - 1 + activeImages.length) % activeImages.length;
+      showImage(prevIndex);
     }
 
-    images.forEach((img, index) => {
-      img.style.cursor = "zoom-in";
-      img.addEventListener("click", () => openLightbox(index));
+    allImages.forEach((img) => {
+      img.style.cursor = "pointer";
+
+      img.addEventListener("click", () => {
+        const groupName = img.getAttribute("data-lightbox");
+        const groupImages = Array.from(document.querySelectorAll(`[data-lightbox="${groupName}"]`));
+        const indexInGroup = groupImages.indexOf(img);
+        openLightbox(groupName, indexInGroup);
+      });
     });
 
     lightboxImg.addEventListener("click", () => {
@@ -723,9 +741,18 @@
     }, { passive: true });
 
     lightboxClose.addEventListener("click", closeLightbox);
+    lightboxNext.addEventListener("click", showNext);
+    lightboxPrev.addEventListener("click", showPrev);
 
     lightbox.addEventListener("click", (e) => {
       if (e.target === lightbox) closeLightbox();
+    });
+
+    zoomBtn.addEventListener("click", (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      zoomed = !zoomed;
+      applyZoom();
     });
 
     window.addEventListener("keydown", (e) => {
@@ -735,15 +762,6 @@
       if (e.key === "ArrowRight") showNext();
       if (e.key === "ArrowLeft") showPrev();
     });
-
-    if (zoomBtn) {
-      zoomBtn.addEventListener("click", (e) => {
-        e.preventDefault();
-        e.stopPropagation();
-        zoomed = !zoomed;
-        applyZoom();
-      });
-    }
 
     applyZoom();
   })();
