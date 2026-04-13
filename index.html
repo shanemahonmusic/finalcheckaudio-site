@@ -335,21 +335,21 @@
     <div class="carousel-window">
       <div class="carousel-track" id="carouselTrack">
         <div class="carousel-item">
-          <div class="carousel-click">
-            <img src="/assets/w1.png" class="carousel-slide" alt="Real case 1" data-lightbox>
-          </div>
+          <button class="carousel-click" type="button" data-lightbox-trigger="case-study" data-lightbox-index="0" aria-label="Open real case 1">
+            <img src="/assets/w1.png" class="carousel-slide" alt="Real case 1" loading="eager" decoding="async" data-lightbox="case-study">
+          </button>
         </div>
 
         <div class="carousel-item">
-          <div class="carousel-click">
-            <img src="/assets/w2.png" class="carousel-slide" alt="Real case 2" data-lightbox>
-          </div>
+          <button class="carousel-click" type="button" data-lightbox-trigger="case-study" data-lightbox-index="1" aria-label="Open real case 2">
+            <img src="/assets/w2.png" class="carousel-slide" alt="Real case 2" loading="eager" decoding="async" data-lightbox="case-study">
+          </button>
         </div>
 
         <div class="carousel-item">
-          <div class="carousel-click">
-            <img src="/assets/w3.png" class="carousel-slide" alt="Real case 3" data-lightbox>
-          </div>
+          <button class="carousel-click" type="button" data-lightbox-trigger="case-study" data-lightbox-index="2" aria-label="Open real case 3">
+            <img src="/assets/w3.png" class="carousel-slide" alt="Real case 3" loading="eager" decoding="async" data-lightbox="case-study">
+          </button>
         </div>
       </div>
     </div>
@@ -357,7 +357,7 @@
     <button class="carousel-btn next" aria-label="Next slide" type="button">›</button>
   </div>
 </section>
-
+  
   <!-- SCREENSHOTS -->
   <section class="container section screenshots">
     <h2>Mix Check verdicts</h2>
@@ -594,7 +594,9 @@
 <!-- LIGHTBOX -->
 <div id="lightbox" class="lightbox" aria-hidden="true">
   <button class="lightbox__close" id="lightboxClose" aria-label="Close" type="button">×</button>
-  <button class="lightbox__zoom" id="lightboxZoom" aria-label="Zoom" type="button">🔍</button>
+  <button class="lightbox__prev" id="lightboxPrev" aria-label="Previous image" type="button">‹</button>
+  <button class="lightbox__next" id="lightboxNext" aria-label="Next image" type="button">›</button>
+  <button class="lightbox__zoom" id="lightboxZoom" aria-label="Zoom" type="button">+</button>
   <img id="lightboxImg" class="lightbox__img" alt="">
 </div>
 
@@ -611,6 +613,12 @@
 </div>
   </div>
 </footer>
+
+  <div style="display:none;" aria-hidden="true">
+  <img src="/assets/w1.png" alt="">
+  <img src="/assets/w2.png" alt="">
+  <img src="/assets/w3.png" alt="">
+</div>
 
 <script>
   document.getElementById("y").textContent = new Date().getFullYear();
