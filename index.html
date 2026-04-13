@@ -606,7 +606,7 @@
 
 <script>
   document.getElementById("y").textContent = new Date().getFullYear();
-  
+
   /* LIGHTBOX */
   (function () {
     const lightbox = document.getElementById("lightbox");
@@ -740,31 +740,33 @@
     applyZoom();
   })();
 
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const track = document.getElementById('carouselTrack');
-      const slides = document.querySelectorAll('.carousel-item');
-      const nextBtn = document.querySelector('.carousel-btn.next');
-      const prevBtn = document.querySelector('.carousel-btn.prev');
+  /* CAROUSEL */
+  document.addEventListener("DOMContentLoaded", () => {
+    const track = document.getElementById("carouselTrack");
+    const slides = document.querySelectorAll(".carousel-item");
+    const nextBtn = document.querySelector(".carousel-btn.next");
+    const prevBtn = document.querySelector(".carousel-btn.prev");
 
-      if (!track || !slides.length || !nextBtn || !prevBtn) return;
+    if (!track || !slides.length || !nextBtn || !prevBtn) return;
 
-      let currentIndex = 0;
+    let currentIndex = 0;
 
-      function updateCarousel() {
-        track.style.transform = `translateX(-${currentIndex * 100}%)`;
-      }
+    function updateCarousel() {
+      track.style.transform = `translateX(-${currentIndex * 100}%)`;
+    }
 
-      nextBtn.addEventListener('click', () => {
-        currentIndex = (currentIndex + 1) % slides.length;
-        updateCarousel();
-      });
-
-      prevBtn.addEventListener('click', () => {
-        currentIndex = (currentIndex - 1 + slides.length) % slides.length;
-        updateCarousel();
-      });
+    nextBtn.addEventListener("click", () => {
+      currentIndex = (currentIndex + 1) % slides.length;
+      updateCarousel();
     });
-  </script>
+
+    prevBtn.addEventListener("click", () => {
+      currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+      updateCarousel();
+    });
+
+    updateCarousel();
+  });
+</script>
 </body>
 </html>
