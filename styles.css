@@ -353,17 +353,22 @@ html{
 .carousel-section {
   padding: 72px 0 88px;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .carousel-section h2 {
   margin: 0 0 12px;
   text-align: center;
+  width: 100%;
 }
 
 .carousel-section p {
   margin: 0 auto 28px;
   text-align: center;
   max-width: 720px;
+  width: 100%;
 }
 
 @media (max-width: 768px) {
