@@ -770,6 +770,38 @@ html{
   place-items: center;
 }
 
+.lightbox__prev,
+.lightbox__next{
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 52px;
+  height: 52px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.25);
+  background: rgba(20,20,20,0.6);
+  color: #fff;
+  font-size: 32px;
+  line-height: 1;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  z-index: 10000;
+}
+
+.lightbox__prev{
+  left: 22px;
+}
+
+.lightbox__next{
+  right: 22px;
+}
+
+.lightbox__prev:hover,
+.lightbox__next:hover{
+  background: rgba(20,20,20,0.85);
+}
+
 .lightbox__zoom:hover{
   background: rgba(20,20,20,0.85);
 }
@@ -807,6 +839,18 @@ html{
 .lightbox__prev:hover,
 .lightbox__next:hover{
   background: rgba(20,20,20,0.85);
+}
+
+@media (max-width: 768px){
+  .lightbox__prev,
+  .lightbox__next{
+    width: 44px;
+    height: 44px;
+    font-size: 26px;
+  }
+
+  .lightbox__prev{ left: 12px; }
+  .lightbox__next{ right: 12px; }
 }
 
 @media (max-width: 768px){
