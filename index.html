@@ -9,9 +9,9 @@
   <meta name="description" content="Import your premaster or master, get a clear result, and know what to fix before you send it out." />
 
   <!-- Preload hero screenshots -->
-  <link rel="preload" as="image" href="/assets/PREMASTER%20PASS.png">
-  <link rel="preload" as="image" href="/assets/PREMASTER%20CAUTION.png">
-  <link rel="preload" as="image" href="/assets/PREMASTER%20FAIL.png">
+<link rel="preload" as="image" href="/assets/PREMASTER%20PASS.webp">
+<link rel="preload" as="image" href="/assets/PREMASTER%20CAUTION.webp">
+<link rel="preload" as="image" href="/assets/PREMASTER%20FAIL.webp">
 
   <!-- Styles -->
   <link rel="stylesheet" href="/styles.css?v=4">
@@ -190,32 +190,35 @@
     <section class="hero-right" aria-hidden="true">
       <div class="heroShots">
         <img
-          class="shot shotBack"
-          src="/assets/PREMASTER%20FAIL.png"
-          width="720"
-          height="420"
-          alt=""
-          loading="eager"
-        />
+  class="shot shotBack"
+  src="/assets/PREMASTER%20FAIL.webp"
+  width="720"
+  height="420"
+  alt=""
+  loading="eager"
+  decoding="async"
+/>
 
-        <img
-          class="shot shotMid"
-          src="/assets/PREMASTER%20CAUTION.png"
-          width="720"
-          height="420"
-          alt=""
-          loading="eager"
-        />
+<img
+  class="shot shotMid"
+  src="/assets/PREMASTER%20CAUTION.webp"
+  width="720"
+  height="420"
+  alt=""
+  loading="eager"
+  decoding="async"
+/>
 
-        <img
-          class="shot shotFront"
-          src="/assets/PREMASTER%20PASS.png"
-          width="720"
-          height="420"
-          alt=""
-          loading="eager"
-          fetchpriority="high"
-        />
+<img
+  class="shot shotFront"
+  src="/assets/PREMASTER%20PASS.webp"
+  width="720"
+  height="420"
+  alt=""
+  loading="eager"
+  decoding="async"
+  fetchpriority="high"
+/>
       </div>
     </section>
   </main>
@@ -367,17 +370,17 @@
 
     <div class="shot-grid">
       <div class="shot-card">
-        <img src="/assets/PREMASTER%20PASS.png" alt="Premaster PASS verdict" loading="lazy" data-lightbox>
+        <img src="/assets/PREMASTER%20PASS.webp" alt="Premaster PASS verdict" loading="lazy" decoding="async" data-lightbox>
         <span>PASS</span>
       </div>
 
       <div class="shot-card">
-        <img src="/assets/PREMASTER%20CAUTION.png" alt="Premaster CAUTION verdict" loading="lazy" data-lightbox>
+        <img src="/assets/PREMASTER%20CAUTION.webp" alt="Premaster CAUTION verdict" loading="lazy" decoding="async" data-lightbox>
         <span>CAUTION</span>
       </div>
 
       <div class="shot-card">
-        <img src="/assets/PREMASTER%20FAIL.png" alt="Premaster FAIL verdict" loading="lazy" data-lightbox>
+        <img src="/assets/PREMASTER%20FAIL.webp" alt="Premaster FAIL verdict" loading="lazy" decoding="async" data-lightbox>
         <span>FAIL</span>
       </div>
     </div>
